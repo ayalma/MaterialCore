@@ -1,0 +1,567 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="material_View" parent="@android:style/Widget">
+    </style>
+
+    <style name="material_Button" parent="@android:style/Widget.Button">
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:paddingLeft">@dimen/material_paddingHalf</item>
+        <item name="android:paddingRight">@dimen/material_paddingHalf</item>
+        <item name="android:minHeight">36dp</item>
+        <item name="android:minWidth">88dp</item>
+        <item name="material_elevation">@dimen/material_elevationButton</item>
+        <item name="material_touchMarginTop">6dp</item>
+        <item name="material_touchMarginBottom">6dp</item>
+        <item name="material_cornerRadius">2dp</item>
+        <item name="android:textColor">@null</item>
+        <item name="android:textAppearance">?attr/material_textAppearanceButtonInverse</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:background">@color/material_defaultColor</item>
+        <item name="material_animateColorChanges">true</item>
+        <item name="material_tint">@color/material_defaultIconColor</item>
+        <item name="material_rippleColor">?attr/material_rippleColorInverse</item>
+
+        <item name="material_autoSizeStepGranularity">1sp</item>
+    </style>
+
+    <style name="material_Button.Colored">
+        <item name="android:background">@color/material_defaultColorPrimary</item>
+    </style>
+
+    <style name="material_Button.Inverse">
+        <item name="android:background">?attr/colorControlNormal</item>
+        <item name="android:textAppearance">?attr/material_textAppearanceButton</item>
+        <item name="material_rippleColor">?attr/material_rippleColor</item>
+    </style>
+
+    <style name="material_Button.Colored.Inverse">
+        <item name="android:textAppearance">?attr/material_textAppearanceButton</item>
+        <item name="material_rippleColor">?attr/material_rippleColor</item>
+    </style>
+
+    <style name="material_Button.Flat">
+        <item name="material_rippleColor">?attr/material_rippleColor</item>
+        <item name="material_elevation">@dimen/material_elevationFlat</item>
+        <item name="android:background">@null</item>
+        <item name="android:textAppearance">?attr/material_textAppearanceButton</item>
+    </style>
+
+    <style name="material_Button.Flat.Colored">
+        <item name="android:textColor">@color/material_defaultTextColorAccent</item>
+    </style>
+
+    <style name="material_Button.Flat.Colored.Inverse">
+        <item name="android:textAppearance">?attr/material_textAppearanceButtonInverse</item>
+        <item name="material_rippleColor">?attr/material_rippleColorInverse</item>
+    </style>
+
+    <style name="material_ToggleButton" parent="@android:style/Widget.Button.Toggle">
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:paddingLeft">@dimen/material_padding</item>
+        <item name="android:paddingRight">@dimen/material_padding</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+    <style name="material_FloatingActionButton" parent="material_ImageView">
+        <item name="android:layout_width">@dimen/material_fabSize</item>
+        <item name="android:layout_height">@dimen/material_fabSize</item>
+        <item name="android:padding">@dimen/material_padding</item>
+        <item name="android:clickable">true</item>
+        <item name="android:background">@color/material_defaultColorAccent</item>
+        <item name="material_rippleColor">?attr/material_rippleColor</item>
+        <item name="material_tint">@color/material_defaultIconColor</item>
+        <item name="material_tintMode">multiply</item>
+        <item name="material_inAnimation">pop</item>
+        <item name="material_outAnimation">pop</item>
+        <item name="material_elevation">@dimen/material_elevationFAB</item>
+        <item name="android:minWidth">@dimen/material_fabSize</item>
+        <item name="android:minHeight">@dimen/material_fabSize</item>
+        <item name="material_cornerRadius">@dimen/material_fabSize</item>
+        <item name="android:scaleType">center</item>
+    </style>
+
+    <style name="material_FloatingActionButton.Primary">
+        <item name="android:background">@color/material_defaultColorPrimary</item>
+        <item name="material_tint">@color/material_defaultIconColorInverse</item>
+    </style>
+
+    <style name="material_FloatingActionButton.Small">
+        <item name="android:layout_width">@dimen/material_smallFabSize</item>
+        <item name="android:layout_height">@dimen/material_smallFabSize</item>
+        <item name="android:minWidth">@dimen/material_smallFabSize</item>
+        <item name="android:minHeight">@dimen/material_smallFabSize</item>
+        <item name="android:padding">@dimen/material_paddingHalf</item>
+    </style>
+
+    <style name="material_FloatingActionButton.Small.Primary">
+        <item name="android:background">@color/material_defaultColorPrimary</item>
+    </style>
+
+    <style name="material_Snackbar" parent="material_LinearLayout">
+        <item name="material_elevation">@dimen/material_elevationSnackbar</item>
+        <item name="android:background">?attr/material_colorBackgroundInverse</item>
+        <item name="android:fitsSystemWindows">false</item>
+        <item name="android:maxHeight">80dp</item>
+        <item name="android:maxWidth">568dp</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:minWidth">288dp</item>
+        <item name="android:paddingEnd" tools:targetApi="jelly_bean_mr1">8dp</item>
+        <item name="android:paddingLeft">24dp</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:paddingStart" tools:targetApi="jelly_bean_mr1">24dp</item>
+    </style>
+
+    <style name="material_TextView" parent="@android:style/Widget.TextView">
+        <item name="android:textAppearance">?attr/material_textAppearanceBody1</item>
+        <item name="material_rippleColor">@null</item>
+        <item name="material_animateColorChanges">true</item>
+        <item name="material_tint">@color/material_defaultColor</item>
+
+        <item name="material_labelTextSize">@dimen/material_textSizeCaption</item>
+        <item name="material_labelFontFamily">"sans-serif"</item>
+
+        <item name="material_autoSizeStepGranularity">1sp</item>
+    </style>
+
+    <style name="material_CollapsingToolbarLayout">
+        <item name="material_rippleColor">@null</item>
+    </style>
+
+    <style name="material_AppBarLayout">
+        <item name="material_rippleColor">@null</item>
+    </style>
+
+    <style name="material_CoordinatorLayout">
+        <item name="material_rippleColor">@null</item>
+    </style>
+
+    <style name="material_FrameLayout">
+        <item name="material_rippleColor">@null</item>
+    </style>
+
+    <style name="material_ConstraintLayout">
+        <item name="material_rippleColor">@null</item>
+    </style>
+
+    <style name="material_FlowLayout">
+        <item name="material_rippleColor">@null</item>
+    </style>
+
+    <style name="material_GridLayout">
+        <item name="material_rippleColor">@null</item>
+    </style>
+
+    <style name="material_RelativeLayout">
+        <item name="material_rippleColor">@null</item>
+    </style>
+
+    <style name="material_LinearLayout">
+        <item name="material_rippleColor">@null</item>
+    </style>
+
+    <style name="material_DrawerLayout">
+        <item name="material_rippleColor">@null</item>
+    </style>
+
+    <style name="material_Toolbar" parent="Widget.AppCompat.Toolbar">
+        <item name="material_theme">?attr/material_toolbarTheme</item>
+        <item name="android:layout_height">@dimen/material_toolbarHeight</item>
+        <item name="android:background">?attr/colorPrimary</item>
+        <item name="material_elevation">@dimen/material_elevationToolbar</item>
+        <item name="material_icon">@raw/material_uparrow</item>
+        <item name="contentInsetLeft">0dp</item>
+        <item name="contentInsetStart">0dp</item>
+        <item name="android:padding">0dp</item>
+        <item name="navigationIcon">@null</item>
+        <item name="collapseIcon">@null</item>
+    </style>
+
+    <style name="material_Chip">
+        <item name="material_cornerRadius">@dimen/material_margin</item>
+        <item name="material_rippleColor">?attr/material_rippleColor</item>
+        <item name="android:background">?attr/colorControlNormal
+        </item>    <!-- TODO: what color should be here? -->
+        <item name="material_elevation">@dimen/material_elevationFlat</item>
+        <item name="material_icon">@null</item>
+        <item name="android:minHeight">@dimen/material_chipHeight</item>
+    </style>
+
+    <style name="material_ImageView">
+        <item name="material_rippleColor">@null</item>
+        <item name="material_rippleStyle">over</item>
+        <item name="material_inAnimation">brightnessSaturationFade</item>
+        <item name="material_outAnimation">brightnessSaturationFade</item>
+        <item name="material_animateColorChanges">true</item>
+    </style>
+
+    <style name="material_ImageView.Icon">
+        <item name="android:scaleType">center</item>
+        <item name="material_tint">@color/material_defaultIconColor</item>
+        <item name="android:layout_width">@dimen/material_iconSize</item>
+        <item name="android:layout_height">@dimen/material_iconSize</item>
+    </style>
+
+    <style name="material_ImageView.Icon.Inverse">
+        <item name="material_tint">@color/material_defaultIconColorInverse</item>
+    </style>
+
+    <style name="material_ImageView.IconButton">
+        <item name="material_rippleColor">?attr/material_rippleColor</item>
+        <item name="material_rippleStyle">borderless</item>
+        <item name="android:scaleType">center</item>
+        <item name="android:clickable">true</item>
+        <item name="material_tint">@color/material_defaultIconColor</item>
+        <item name="android:layout_width">@dimen/material_toolbarItemSize</item>
+        <item name="android:layout_height">@dimen/material_toolbarItemSize</item>
+    </style>
+
+    <style name="material_ImageView.IconButton.Inverse">
+        <item name="material_rippleColor">?attr/material_rippleColorInverse</item>
+        <item name="material_tint">@color/material_defaultIconColorInverse</item>
+    </style>
+
+    <style name="material_ImageView.Avatar">
+        <item name="android:scaleType">centerCrop</item>
+        <item name="android:layout_width">@dimen/material_avatarSize</item>
+        <item name="android:layout_height">@dimen/material_avatarSize</item>
+        <item name="material_cornerRadius">@dimen/material_avatarSize</item>
+        <item name="material_stroke">?attr/material_dividerColor</item>
+        <item name="material_strokeWidth">0.5dp</item>
+    </style>
+
+    <style name="material_ListView" parent="@android:style/Widget.ListView">
+        <item name="android:scrollbarSize">8dp</item>
+        <item name="android:scrollbarThumbVertical">@drawable/material_scrollbar_thumb</item>
+        <item name="android:scrollbarThumbHorizontal">@drawable/material_scrollbar_thumb</item>
+        <item name="android:divider">?attr/material_dividerColor</item>
+        <item name="android:dividerHeight">@dimen/material_dividerHeight</item>
+        <item name="material_tint">?attr/colorPrimary</item>
+    </style>
+
+    <style name="material_RecyclerView">
+        <item name="android:scrollbars">vertical</item>
+        <item name="android:scrollbarSize">8dp</item>
+        <item name="android:scrollbarThumbVertical">@drawable/material_scrollbar_thumb</item>
+        <item name="android:scrollbarThumbHorizontal">@drawable/material_scrollbar_thumb</item>
+        <item name="android:fadingEdge">none</item>
+        <item name="material_overScroll">ifContentScrolls</item>
+        <item name="material_tint">?attr/colorPrimary</item>
+    </style>
+
+    <style name="material_Divider">
+        <item name="android:background">?attr/material_dividerColor</item>
+    </style>
+
+    <style name="material_ProgressBar" parent="Widget.AppCompat.ProgressBar">
+        <item name="material_progressStyle">bar_indeterminate</item>
+        <item name="material_tint">?attr/colorPrimary</item>
+        <item name="material_barWidth">3dp</item>
+        <item name="material_inAnimation">progressWidth</item>
+        <item name="material_outAnimation">progressWidth</item>
+    </style>
+
+    <style name="material_CardView" parent="material_LinearLayout">
+        <item name="android:background">?attr/material_colorBackground</item>
+        <item name="material_elevation">@dimen/material_elevationCard</item>
+        <item name="material_cornerRadius">2dp</item>
+        <item name="android:layout_margin">@dimen/material_paddingHalf</item>
+    </style>
+
+    <style name="material_InputLayout">
+        <item name="material_labelStyle">persistent</item>
+
+        <item name="material_errorTextSize">@dimen/material_textSizeCaption</item>
+        <item name="material_counterTextSize">@dimen/material_textSizeCaption</item>
+        <item name="material_labelTextSize">@dimen/material_textSizeCaption</item>
+        <item name="material_errorFontFamily">"sans-serif"</item>
+        <item name="material_counterFontFamily">"sans-serif"</item>
+        <item name="material_labelFontFamily">"sans-serif"</item>
+
+        <item name="android:gravity">start|left</item>
+
+        <item name="material_theme">@style/material_InputLayoutContainerTheme</item>
+    </style>
+
+    <style name="material_ImageView.InputLayout" parent="material_ImageView.IconButton">
+        <item name="android:layout_width">@dimen/material_iconSize</item>
+        <item name="android:layout_height">@dimen/material_iconSize</item>
+        <item name="android:layout_marginBottom">@dimen/material_margin</item>
+    </style>
+
+    <style name="material_InputLayoutContainerTheme" parent="">
+        <item name="material_inputLayoutButtonStyle">@style/material_ImageView.InputLayout</item>
+        <item name="material_inputLayoutContainerStyle">@style/material_InputLayoutContainer</item>
+    </style>
+
+    <style name="material_InputLayoutContainer" parent="material_RelativeLayout">
+    </style>
+
+    <style name="material_InputLayout.Box">
+        <item name="material_theme">@style/material_InputLayoutContainerTheme.Box</item>
+    </style>
+
+    <style name="material_EditText.InputLayout.Box" parent="material_EditText">
+        <item name="android:paddingBottom">@dimen/material_paddingHalf</item>
+        <item name="android:paddingLeft">@dimen/material_padding</item>
+        <item name="android:paddingRight">@dimen/material_padding</item>
+    </style>
+
+    <style name="material_ImageView.InputLayout.Box">
+        <item name="android:layout_marginBottom">@dimen/material_marginHalf</item>
+    </style>
+
+    <style name="material_InputLayoutContainerTheme.Box" parent="">
+        <item name="android:editTextStyle">@style/material_EditText.InputLayout.Box</item>
+        <item name="material_inputLayoutButtonStyle">@style/material_ImageView.InputLayout.Box</item>
+        <item name="material_inputLayoutContainerStyle">@style/material_InputLayoutContainer.Box</item>
+        <item name="material_inputLayoutBoxPadding">@dimen/material_padding</item>
+    </style>
+
+    <style name="material_InputLayoutContainer.Box" parent="material_RelativeLayout">
+        <item name="android:paddingTop">@dimen/material_paddingHalf</item>
+        <item name="material_cornerRadius">4dp</item>
+        <item name="android:background">?attr/material_inputLayoutBoxColor</item>
+    </style>
+
+    <style name="material_InputLayout.Stroke">
+        <item name="material_theme">@style/material_InputLayoutContainerTheme.Stroke</item>
+    </style>
+
+    <style name="material_EditText.InputLayout.Stroke" parent="material_EditText">
+        <item name="android:paddingLeft">@dimen/material_padding</item>
+        <item name="android:paddingRight">@dimen/material_padding</item>
+        <item name="android:background">@null</item>
+    </style>
+
+    <style name="material_ImageView.InputLayout.Stroke">
+        <item name="android:layout_marginBottom">@dimen/material_margin</item>
+    </style>
+
+    <style name="material_InputLayoutContainerTheme.Stroke" parent="">
+        <item name="android:editTextStyle">@style/material_EditText.InputLayout.Stroke</item>
+        <item name="material_inputLayoutButtonStyle">@style/material_ImageView.InputLayout.Stroke</item>
+        <item name="material_inputLayoutContainerStyle">@style/material_InputLayoutContainer.Stroke
+        </item>
+        <item name="material_inputLayoutBoxPadding">@dimen/material_padding</item>
+    </style>
+
+    <style name="material_InputLayoutContainer.Stroke" parent="material_RelativeLayout">
+        <item name="android:paddingTop">@dimen/material_paddingHalf</item>
+        <item name="material_cornerRadius">4dp</item>
+        <item name="material_strokeWidth">1dp</item>
+        <item name="material_stroke">@color/material_defaultColorAccent</item>
+        <item name="android:layout_marginBottom">@dimen/material_marginHalf</item>
+    </style>
+
+    <style name="material_EditText" parent="@android:style/Widget.EditText">
+        <item name="android:textColor">@null</item>
+        <item name="material_rippleColor">@null</item>
+        <item name="android:textAppearance">?attr/material_textAppearanceSubhead</item>
+        <item name="android:background">@color/material_defaultColor</item>
+        <item name="android:paddingBottom">@dimen/material_padding</item>
+        <item name="material_cursorColor">?attr/colorAccent</item>
+        <item name="material_animateColorChanges">true</item>
+        <item name="material_tint">@color/material_defaultColor</item>
+        <item name="material_backgroundTint">@color/material_defaultColor</item>
+
+        <item name="material_autoSizeStepGranularity">1sp</item>
+    </style>
+
+    <style name="material_SearchEditText" parent="material_EditText">
+        <item name="android:maxLines">1</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:imeOptions">actionSearch</item>
+    </style>
+
+    <style name="material_DropDown" parent="material_EditText">
+        <item name="android:maxLines">1</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:background">@null</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textAppearance">?attr/material_textAppearanceSubhead</item>
+        <item name="material_popupTheme">?attr/material_dropDownPopupTheme</item>
+    </style>
+
+    <style name="material_PagerTabStrip" parent="material_HorizontalScrollView">
+        <item name="material_tint">?attr/colorAccent</item>
+        <item name="material_indicatorWidth">2dp</item>
+        <item name="material_fixedTabs">true</item>
+    </style>
+
+    <style name="material_ViewPagerIndicator">
+        <item name="material_tint">@color/material_defaultIconColor</item>
+    </style>
+
+    <style name="material_ScrollView">
+        <item name="android:scrollbars">vertical</item>
+        <item name="android:scrollbarSize">8dp</item>
+        <item name="android:scrollbarThumbVertical">@drawable/material_scrollbar_thumb</item>
+        <item name="android:scrollbarThumbHorizontal">@drawable/material_scrollbar_thumb</item>
+        <item name="material_tint">?attr/colorPrimary</item>
+    </style>
+
+    <style name="material_HorizontalScrollView">
+        <item name="android:scrollbars">horizontal</item>
+        <item name="android:scrollbarSize">8dp</item>
+        <item name="android:scrollbarThumbVertical">@drawable/material_scrollbar_thumb</item>
+        <item name="android:scrollbarThumbHorizontal">@drawable/material_scrollbar_thumb</item>
+        <item name="material_tint">?attr/colorPrimary</item>
+    </style>
+
+    <style name="material_ViewPager">
+        <item name="android:scrollbars">horizontal</item>
+        <item name="android:scrollbarSize">8dp</item>
+        <item name="android:scrollbarThumbVertical">@drawable/material_scrollbar_thumb</item>
+        <item name="android:scrollbarThumbHorizontal">@drawable/material_scrollbar_thumb</item>
+        <item name="material_tint">?attr/colorPrimary</item>
+    </style>
+
+    <style name="material_CheckedTextView" parent="material_TextView">
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:gravity">center_vertical|start</item>
+        <item name="android:paddingRight">12dp</item>
+        <item name="android:paddingEnd" tools:targetApi="jelly_bean_mr1">12dp</item>
+        <item name="material_rippleColor">@null</item>
+        <item name="android:textAppearance">?attr/material_textAppearanceBody1</item>
+        <item name="android:drawablePadding">12dp</item>
+        <item name="material_tint">@color/material_defaultIconColorPrimary</item>
+        <item name="android:background">@null</item>
+    </style>
+
+    <style name="material_CheckedTextView.IconButton">
+        <item name="material_rippleColor">?attr/material_rippleColor</item>
+        <item name="material_rippleStyle">borderless</item>
+        <item name="android:scaleType">center</item>
+        <item name="android:clickable">true</item>
+        <item name="android:layout_width">@dimen/material_toolbarItemSize</item>
+        <item name="android:layout_height">@dimen/material_toolbarItemSize</item>
+        <item name="android:paddingRight">@null</item>
+        <item name="android:paddingEnd" tools:targetApi="jelly_bean_mr1">@null</item>
+        <item name="android:padding">@dimen/material_toolbarItemPadding</item>
+        <item name="android:drawablePadding">0dp</item>
+    </style>
+
+    <style name="material_CheckedTextView.IconButton.Inverse">
+        <item name="material_rippleColor">?attr/material_rippleColorInverse</item>
+    </style>
+
+    <style name="material_CheckBox" parent="material_TextView">
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:gravity">center_vertical|start</item>
+        <item name="material_buttonGravity">start</item>
+        <item name="android:paddingLeft">@dimen/material_padding</item>
+        <item name="android:paddingRight">@dimen/material_padding</item>
+        <item name="material_rippleColor">@null</item>
+        <item name="android:textAppearance">?attr/material_textAppearanceBody1</item>
+        <item name="android:drawablePadding">@dimen/material_padding</item>
+        <item name="material_tint">@color/material_defaultIconColorPrimary</item>
+        <item name="android:background">@null</item>
+    </style>
+
+    <style name="material_CheckBox.IconButton">
+        <item name="material_rippleColor">?attr/material_rippleColor</item>
+        <item name="material_rippleStyle">borderless</item>
+        <item name="android:scaleType">center</item>
+        <item name="android:clickable">true</item>
+        <item name="android:layout_width">@dimen/material_toolbarItemSize</item>
+        <item name="android:layout_height">@dimen/material_toolbarItemSize</item>
+        <item name="android:paddingLeft">@null</item>
+        <item name="android:paddingRight">@null</item>
+        <item name="android:padding">@dimen/material_toolbarItemPadding</item>
+        <item name="android:drawablePadding">0dp</item>
+        <item name="material_tint">@color/material_defaultIconColor</item>
+    </style>
+
+    <style name="material_CheckBox.IconButton.Inverse">
+        <item name="material_rippleColor">?attr/material_rippleColorInverse</item>
+        <item name="material_tint">@color/material_defaultIconColorInverse</item>
+    </style>
+
+    <style name="material_RadioButton" parent="material_TextView">
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:gravity">center_vertical|start</item>
+        <item name="material_buttonGravity">start</item>
+        <item name="android:paddingLeft">@dimen/material_padding</item>
+        <item name="android:paddingRight">@dimen/material_padding</item>
+        <item name="material_rippleColor">@null</item>
+        <item name="android:textAppearance">?attr/material_textAppearanceBody1</item>
+        <item name="android:drawablePadding">@dimen/material_padding</item>
+        <item name="material_tint">@color/material_defaultIconColorPrimary</item>
+        <item name="android:background">@null</item>
+    </style>
+
+    <style name="material_RadioButton.IconButton">
+        <item name="material_rippleColor">?attr/material_rippleColor</item>
+        <item name="material_rippleStyle">borderless</item>
+        <item name="android:scaleType">center</item>
+        <item name="android:clickable">true</item>
+        <item name="android:layout_width">@dimen/material_toolbarItemSize</item>
+        <item name="android:layout_height">@dimen/material_toolbarItemSize</item>
+        <item name="android:paddingLeft">@null</item>
+        <item name="android:paddingRight">@null</item>
+        <item name="android:padding">@dimen/material_toolbarItemPadding</item>
+        <item name="android:drawablePadding">0dp</item>
+        <item name="material_tint">@color/material_defaultIconColor</item>
+    </style>
+
+    <style name="material_RadioButton.IconButton.Inverse">
+        <item name="material_rippleColor">?attr/material_rippleColorInverse</item>
+        <item name="material_tint">@color/material_defaultIconColorInverse</item>
+    </style>
+
+    <style name="material_PopupAnimation" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/material_popup_show</item>
+        <item name="android:windowExitAnimation">@anim/material_popup_hide</item>
+    </style>
+
+    <style name="material_SeekBar" parent="android:Widget.SeekBar">
+        <item name="material_rippleColor">?attr/material_rippleColor</item>
+        <item name="material_rippleHotspot">true</item>
+        <item name="material_rippleRadius">25dp</item>
+        <item name="material_rippleStyle">borderless</item>
+        <item name="material_tint">@color/material_defaultColorAccent</item>
+        <item name="android:background">@null</item>
+        <item name="android:focusableInTouchMode">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="material_min">0</item>
+        <item name="material_max">5</item>
+        <item name="material_barStyle">continuous</item>
+        <item name="material_stepSize">1</item>
+        <item name="material_value">1</item>
+        <item name="material_value2">4</item>
+        <item name="material_tick">true</item>
+        <item name="material_tickStep">1</item>
+        <item name="material_tickColor">?attr/colorControlNormal</item>
+        <item name="material_labelFormat">%.0f</item>
+    </style>
+
+    <style name="material_NavigationView"/>
+
+    <style name="material_TextView.Tooltip">
+        <item name="android:minHeight">@dimen/material_tooltipHeight</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingLeft">@dimen/material_tooltipPadding</item>
+        <item name="android:paddingRight">@dimen/material_tooltipPadding</item>
+        <item name="android:background">@color/material_tooltip</item>
+        <item name="android:textColor">@color/material_defaultTextPrimaryColorInverse</item>
+        <item name="android:textSize">@dimen/material_tooltipTextSize</item>
+        <item name="material_cornerRadius">2dp</item>
+        <item name="material_elevation">@dimen/material_elevationTooltip</item>
+    </style>
+
+    <style name="material_AutoCompleteLayout" parent="material_LinearLayout">
+        <item name="android:background">?attr/material_colorForeground</item>
+        <item name="material_cornerRadius">2dp</item>
+        <item name="material_elevation">@dimen/material_elevationCard</item>
+    </style>
+</resources>
