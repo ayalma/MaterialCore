@@ -1,5 +1,10 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
+apply plugin: 'com.github.dcendents.android-maven'
+
+
+group='com.github.ayalma'
+
 ext {
     supportLibVersion = '27.1.0'
 }
