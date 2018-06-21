@@ -22,12 +22,7 @@ class MainActivity : AppCompatActivity() {
                     .setAction("Action", null).show()
         }
     }
-    private inline fun List<Any?>.saveAll() {
-
-    }
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        var list : List<String> = ArrayList<String>();
-        list.saveAll()
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_main, menu)
         return true
