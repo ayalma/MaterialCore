@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="material_1dip">1dp</dimen>
+    <dimen name="material_translationButton">6dp</dimen>
+    <dimen name="material_iconSize">24dp</dimen>
+</resources>

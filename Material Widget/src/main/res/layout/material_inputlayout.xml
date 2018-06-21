@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+       xmlns:app="http://schemas.android.com/apk/res-auto"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content">
+
+    <mat.widget.RelativeLayout
+        android:id="@+id/material_inputLayoutContainer"
+        style="?attr/material_inputLayoutContainerStyle"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:addStatesFromChildren="true"
+        android:tag="inputLayout">
+
+        <mat.widget.TextView
+            android:id="@+id/material_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="?attr/material_inputLayoutBoxPadding"
+            android:paddingRight="?attr/material_inputLayoutBoxPadding"
+            android:tag="inputLayout"
+            android:textAppearance="?attr/material_textAppearanceCaption"
+            app:material_inAnimation="fly"
+            app:material_outAnimation="fly"/>
+
+    </mat.widget.RelativeLayout>
+
+    <mat.widget.ImageView
+        android:id="@+id/material_clear"
+        style="?attr/material_inputLayoutButtonStyle"
+        android:layout_alignBottom="@+id/material_inputLayoutContainer"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="?attr/material_inputLayoutBoxPadding"
+        android:layout_marginRight="?attr/material_inputLayoutBoxPadding"
+        android:src="@raw/material_clear"
+        android:tag="inputLayout"/>
+
+    <mat.widget.ImageView
+        android:id="@+id/material_showPassword"
+        style="?attr/material_inputLayoutButtonStyle"
+        android:layout_alignBottom="@+id/material_inputLayoutContainer"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="?attr/material_inputLayoutBoxPadding"
+        android:layout_marginRight="?attr/material_inputLayoutBoxPadding"
+        android:src="@raw/material_visibility"
+        android:tag="inputLayout"/>
+
+    <mat.widget.ImageView
+        android:id="@+id/material_voiceInput"
+        style="?attr/material_inputLayoutButtonStyle"
+        android:layout_alignBottom="@+id/material_inputLayoutContainer"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="?attr/material_inputLayoutBoxPadding"
+        android:layout_marginRight="?attr/material_inputLayoutBoxPadding"
+        android:src="@raw/material_voice"
+        android:tag="inputLayout"/>
+
+    <mat.widget.LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/material_inputLayoutContainer"
+        android:layout_marginLeft="?attr/material_inputLayoutBoxPadding"
+        android:layout_marginRight="?attr/material_inputLayoutBoxPadding"
+        android:tag="inputLayout">
+
+        <mat.widget.TextView
+            android:id="@+id/material_error"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAppearance="?attr/material_textAppearanceCaption"
+            app:material_inAnimation="fade"
+            app:material_outAnimation="fade"/>
+
+        <mat.widget.TextView
+            android:id="@+id/material_counter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?attr/material_textAppearanceCaption"/>
+
+    </mat.widget.LinearLayout>
+
+</merge>

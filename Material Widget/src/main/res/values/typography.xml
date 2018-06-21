@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="material_TextAppearance" parent="@android:style/TextAppearance"/>
+
+
+    <style name="material_TextAppearance.Headline">
+        <item name="android:textSize">@dimen/material_textSizeHeadline</item>
+        <item name="material_fontFamily">"sans-serif"</item>
+        <item name="android:textColor">@color/material_defaultTextPrimaryColor</item>
+    </style>
+
+    <style name="material_TextAppearance.Headline.Inverse">
+        <item name="android:textColor">@color/material_defaultTextPrimaryColorInverse</item>
+    </style>
+
+
+    <style name="material_TextAppearance.Title">
+        <item name="android:textSize">@dimen/material_textSizeTitle</item>
+        <item name="material_fontFamily">"sans-serif-medium"</item>
+        <item name="android:textColor">@color/material_defaultTextPrimaryColor</item>
+    </style>
+
+    <style name="material_TextAppearance.Title.Inverse">
+        <item name="android:textColor">@color/material_defaultTextPrimaryColorInverse</item>
+    </style>
+
+
+    <style name="material_TextAppearance.Subhead">
+        <item name="android:textSize">@dimen/material_textSizeSubhead</item>
+        <item name="material_fontFamily">"sans-serif"</item>
+        <item name="android:textColor">@color/material_defaultTextPrimaryColor</item>
+    </style>
+
+    <style name="material_TextAppearance.Subhead.Inverse">
+        <item name="android:textColor">@color/material_defaultTextPrimaryColorInverse</item>
+    </style>
+
+
+    <style name="material_TextAppearance.Body2">
+        <item name="android:textSize">@dimen/material_textSizeBody</item>
+        <item name="material_fontFamily">"sans-serif-medium"</item>
+        <item name="android:textColor">@color/material_defaultTextPrimaryColor</item>
+    </style>
+
+    <style name="material_TextAppearance.Body2.Inverse">
+        <item name="android:textColor">@color/material_defaultTextPrimaryColorInverse</item>
+    </style>
+
+
+    <style name="material_TextAppearance.Body1">
+        <item name="android:textSize">@dimen/material_textSizeBody</item>
+        <item name="material_fontFamily">"sans-serif"</item>
+        <item name="android:textColor">@color/material_defaultTextPrimaryColor</item>
+    </style>
+
+    <style name="material_TextAppearance.Body1.Inverse">
+        <item name="android:textColor">@color/material_defaultTextPrimaryColorInverse</item>
+    </style>
+
+
+    <style name="material_TextAppearance.ListHeader">
+        <item name="android:textSize">@dimen/material_textSizeListHeader</item>
+        <item name="material_fontFamily">"sans-serif-medium"</item>
+        <item name="android:textColor">@color/material_defaultTextSecondaryColor</item>
+    </style>
+
+    <style name="material_TextAppearance.ListHeader.Inverse">
+        <item name="android:textColor">@color/material_defaultTextSecondaryColorInverse</item>
+    </style>
+
+
+    <style name="material_TextAppearance.Caption">
+        <item name="android:textSize">@dimen/material_textSizeCaption</item>
+        <item name="material_fontFamily">"sans-serif"</item>
+        <item name="android:textColor">@color/material_defaultTextSecondaryColor</item>
+    </style>
+
+    <style name="material_TextAppearance.Caption.Inverse">
+        <item name="android:textColor">@color/material_defaultTextSecondaryColorInverse</item>
+    </style>
+
+
+    <style name="material_TextAppearance.Button">
+        <item name="android:textSize">@dimen/material_textSizeButton</item>
+        <item name="material_fontFamily">"sans-serif-medium"</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/material_defaultTextPrimaryColor</item>
+    </style>
+
+    <style name="material_TextAppearance.Button.Inverse">
+        <item name="android:textColor">@color/material_defaultTextPrimaryColorInverse</item>
+    </style>
+
+</resources>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="material_white_10">#19ffffff</color>
+    <color name="material_white_12">#1fffffff</color>
+    <color name="material_white_50">#7fffffff</color>
+    <color name="material_white_70">#b3ffffff</color>
+
+    <color name="material_black_6">#0f000000</color>
+    <color name="material_black_12">#1f000000</color>
+    <color name="material_black_38">#61000000</color>
+    <color name="material_black_54">#8a000000</color>
+    <color name="material_black_87">#de000000</color>
+
+    <!-- dark theme -->
+    <color name="material_dividerColor_dark">@color/material_white_12</color>
+    <color name="material_rippleColor_dark">#14ffffff</color>
+    <color name="material_iconColorActive_dark">@color/material_white</color>
+    <color name="material_iconColorInactive_dark">@color/material_white_50</color>
+    
+    <color name="material_colorPrimaryDark_dark">@color/material_black</color>
+    <color name="material_colorPrimary_dark">@color/material_grey_900</color>
+    <color name="material_colorControl_dark">@color/material_white_70</color>
+    <color name="material_colorBackground_dark">#ff303030</color>
+    <color name="material_colorForeground_dark">@color/material_grey_800</color>
+
+    <color name="material_textColorPrimary_dark">@color/material_white</color>
+    <color name="material_textColorSecondary_dark">@color/material_white_70</color>
+    <color name="material_textColorHint_dark">@color/material_white_50</color>
+    <color name="material_textColorDisabled_dark">@color/material_white_50</color>
+
+    <!-- light theme -->
+    <color name="material_dividerColor_light">@color/material_black_12</color>
+    <color name="material_rippleColor_light">#0c000000</color>
+    <color name="material_iconColorActive_light">@color/material_black_54</color>
+    <color name="material_iconColorInactive_light">@color/material_black_38</color>
+
+    <color name="material_colorPrimaryDark_light">@color/material_grey_300</color>
+    <color name="material_colorPrimary_light">@color/material_grey_100</color>
+    <color name="material_colorControl_light">@color/material_black_54</color>
+    <color name="material_colorBackground_light">@color/material_grey_50</color>
+    <color name="material_colorForeground_light">@color/material_white</color>
+
+    <color name="material_textColorPrimary_light">@color/material_black_87</color>
+    <color name="material_textColorSecondary_light">@color/material_black_54</color>
+    <color name="material_textColorHint_light">@color/material_black_38</color>
+    <color name="material_textColorDisabled_light">@color/material_black_38</color>
+
+
+    <color name="material_debug">#ffDE3226</color>
+    <color name="material_tooltip">#e5616161</color>
+
+    <color name="material_tab_text_selected">#ff000000</color>
+    <color name="material_tab_text_unselected">#8a000000</color>
+
+
+    <color name="material_defaultColor">#12345678</color>
+    <color name="material_defaultColorPrimary">#12345678</color>
+    <color name="material_defaultColorAccent">#12345678</color>
+
+    <color name="material_defaultIconColor">#12345678</color>
+    <color name="material_defaultIconColorInverse">#12345678</color>
+    <color name="material_defaultIconColorAccent">#12345678</color>
+    <color name="material_defaultIconColorAccentInverse">#12345678</color>
+    <color name="material_defaultIconColorPrimary">#12345678</color>
+    <color name="material_defaultIconColorPrimaryInverse">#12345678</color>
+
+    <color name="material_defaultTextPrimaryColor">#12345678</color>
+    <color name="material_defaultTextSecondaryColor">#12345678</color>
+    <color name="material_defaultTextPrimaryColorInverse">#12345678</color>
+    <color name="material_defaultTextSecondaryColorInverse">#12345678</color>
+    <color name="material_defaultTextColorPrimary">#12345678</color>
+    <color name="material_defaultTextColorAccent">#12345678</color>
+
+    <color name="material_defaultRippleColor">#12345678</color>
+    <color name="material_defaultRippleColorPrimary">#12345678</color>
+    <color name="material_defaultRippleColorAccent">#12345678</color>
+</resources>
