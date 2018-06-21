@@ -57,5 +57,5 @@ dependencies {
     //compileOnly 'com.github.ZieIony.RandomData:person:db21077582'
     implementation 'com.github.ZieIony:LandscapeView:94187526bb'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation project(':Material Widget')
+    implementation project(':widget')
 }

@@ -1,1 +1,1 @@
-include ':Material Core', ':carbonxsample', ':Material Widget'
+include ':core', ':carbonxsample', ':widget'
