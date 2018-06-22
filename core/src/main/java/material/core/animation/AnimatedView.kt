@@ -1,46 +1,46 @@
-package material.core.animation;
+package material.core.animation
 
-import android.animation.Animator;
+import android.animation.Animator
 
 /**
  * Interface of a view with animations. These animations are used for changing visibility by using
  * setVisible(boolean) method.
  */
-public interface AnimatedView {
+interface AnimatedView {
     /**
      * Gets the current Animator object. Works like View.getAnimation() but with animators.
      *
      * @return the current Animator object or null
      */
-    Animator getAnimator();
+    fun getAnimator(): Animator
 
     /**
      * Gets the animation used when view's visibility is changed from VISIBLE to GONE/INVISIBLE
      *
      * @return the current out animation or null if nothing is set.
      */
-    Animator getOutAnimator();
+    fun getOutAnimator(): Animator
 
     /**
      * Sets the animation used when view's visibility is changed from VISIBLE to GONE/INVISIBLE
      *
      * @param outAnim new out animation. Use null for no animation.
      */
-    void setOutAnimator(Animator outAnim);
+    fun setOutAnimator(outAnim: Animator)
 
     /**
      * Gets the animation used when view's visibility is changed from GONE/INVISIBLE to VISIBLE
      *
      * @return the current in animation or null if nothing is set.
      */
-    Animator getInAnimator();
+    fun getInAnimator(): Animator
 
     /**
      * Sets the animation used when view's visibility is changed from GONE/INVISIBLE to VISIBLE
      *
      * @param inAnim new in animation. Use null for no animation.
      */
-    void setInAnimator(Animator inAnim);
+    fun setInAnimator(inAnim: Animator);
 
     /**
      * Sets visibility using set animation style.
@@ -48,5 +48,5 @@ public interface AnimatedView {
      * @param visibility one of View.VISIBLE/INVISIBLE/GONE flags
      * @return visibility animation animator
      */
-    Animator animateVisibility(int visibility);
+    fun animateVisibility(visibility: Int)
 }

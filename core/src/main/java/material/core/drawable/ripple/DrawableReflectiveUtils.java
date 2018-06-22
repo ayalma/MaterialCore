@@ -3,9 +3,9 @@ package material.core.drawable.ripple;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 import android.os.Build;
-import android.support.v4.util.LruCache;
-import android.support.v4.util.SimpleArrayMap;
+
 import android.util.Log;
+import android.util.LruCache;
 
 import java.lang.reflect.Method;
 

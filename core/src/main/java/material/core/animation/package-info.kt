@@ -1,4 +1,4 @@
 /**
  * Animation utilities used by Carbon.
  */
-package material.core.animation;
+package material.core.animation

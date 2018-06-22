@@ -257,7 +257,7 @@ public class Material {
             if (typedValue.resourceId != 0) {
                 view.setInAnimator(AnimatorInflater.loadAnimator(((View) view).getContext(), typedValue.resourceId));
             } else {
-                view.setInAnimator(AnimUtils.Style.values()[typedValue.data].getInAnimator());
+                view.setInAnimator(AnimUtils.get(true,typedValue.data));
             }
         }
 
@@ -268,7 +268,7 @@ public class Material {
             if (typedValue.resourceId != 0) {
                 view.setOutAnimator(AnimatorInflater.loadAnimator(((View) view).getContext(), typedValue.resourceId));
             } else {
-                view.setOutAnimator(AnimUtils.Style.values()[typedValue.data].getOutAnimator());
+                view.setInAnimator(AnimUtils.get(false,typedValue.data));
             }
         }
     }
