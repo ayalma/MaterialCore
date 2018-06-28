@@ -40,7 +40,7 @@ interface AnimatedView {
      *
      * @param inAnim new in animation. Use null for no animation.
      */
-    fun setInAnimator(inAnim: Animator);
+    fun setInAnimator(inAnim: Animator)
 
     /**
      * Sets visibility using set animation style.
@@ -48,5 +48,5 @@ interface AnimatedView {
      * @param visibility one of View.VISIBLE/INVISIBLE/GONE flags
      * @return visibility animation animator
      */
-    fun animateVisibility(visibility: Int)
+    fun animateVisibility(visibility: Int):Animator
 }

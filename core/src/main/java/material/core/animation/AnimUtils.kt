@@ -1,27 +1,23 @@
 package material.core.animation;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.ValueAnimator;
-import android.graphics.Color;
-import android.graphics.ColorMatrix;
+import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
+import android.animation.ValueAnimator
+import android.graphics.ColorMatrix
 import android.graphics.ColorMatrixColorFilter
-import android.media.Image
 import android.support.v4.view.animation.FastOutLinearInInterpolator
+import android.support.v4.view.animation.FastOutSlowInInterpolator
 import android.support.v4.view.animation.LinearOutSlowInInterpolator
-
-import android.view.Gravity;
-import android.view.View;
-import android.view.ViewGroup;
+import android.view.Gravity
+import android.view.View
+import android.view.ViewGroup
 import android.view.animation.AccelerateDecelerateInterpolator
-import android.view.animation.DecelerateInterpolator;
-import android.widget.ImageView;
-
-import material.R;
-import material.R.id.start
-import material.core.animation.AnimUtils.Companion.getFadeOutAnimator
+import android.view.animation.DecelerateInterpolator
+import android.widget.ImageView
+import material.R
 import material.core.shadow.ShadowView
-import  material.core.animation.Style;
+
+
 
 class AnimUtils {
 
@@ -31,6 +27,7 @@ class AnimUtils {
     }
 
     companion object {
+        @JvmStatic
         fun getFadeInAnimator(): ValueAnimator {
             val animator = ViewAnimator()
             animator.interpolator = DecelerateInterpolator()
@@ -48,7 +45,7 @@ class AnimUtils {
             }
             return animator
         }
-
+        @JvmStatic
         fun getFadeOutAnimator(): ValueAnimator {
             val animator = ViewAnimator()
             animator.interpolator = DecelerateInterpolator()
@@ -65,7 +62,7 @@ class AnimUtils {
             }
             return animator
         }
-
+        @JvmStatic
         fun getPopInAnimator(): Animator {
             val animator = ViewAnimator();
             animator.interpolator = DecelerateInterpolator();
@@ -85,7 +82,7 @@ class AnimUtils {
             })
             return animator;
         }
-
+        @JvmStatic
         fun getPopOutAnimator(): Animator {
             val animator = ViewAnimator()
             animator.interpolator = DecelerateInterpolator();
@@ -104,7 +101,7 @@ class AnimUtils {
             })
             return animator;
         }
-
+        @JvmStatic
         fun getFlyInAnimator(): ValueAnimator {
             val animator = ViewAnimator();
             animator.interpolator = LinearOutSlowInInterpolator();
@@ -123,7 +120,7 @@ class AnimUtils {
             });
             return animator
         }
-
+        @JvmStatic
         fun getFlyOutAnimator(): ValueAnimator {
 
             val animator = ViewAnimator()
@@ -144,7 +141,7 @@ class AnimUtils {
             })
             return animator
         }
-
+        @JvmStatic
         fun getSlideInAnimator(): ValueAnimator {
             val animator = ViewAnimator()
             animator.interpolator = LinearOutSlowInInterpolator();
@@ -163,11 +160,9 @@ class AnimUtils {
             })
             return animator
         }
-
-        fun getSlideOutAnimator(): ValueAnimator {
-            return getSlideOutAnimator(Gravity.BOTTOM);
-        }
-
+        @JvmStatic
+        fun getSlideOutAnimator() = getSlideOutAnimator(Gravity.BOTTOM);
+        @JvmStatic
         fun getSlideOutAnimator(gravity: Int): ValueAnimator {
             val animator = ViewAnimator();
             animator.interpolator = FastOutLinearInInterpolator();
@@ -188,37 +183,32 @@ class AnimUtils {
             })
             return animator
         }
-
+        @JvmStatic
         fun getBrightnessSaturationFadeInAnimator(): Animator {
-            ViewAnimator animator = new ViewAnimator();
-            final AccelerateDecelerateInterpolator interpolator = new AccelerateDecelerateInterpolator ();
-            animator.setInterpolator(interpolator);
-            animator.setOnSetupValuesListener(() -> {
-                animator.setFloatValues(0, 1);  // TODO: start values
-                animator.setDuration(800);
-            });
-            animator.addUpdateListener(new ValueAnimator . AnimatorUpdateListener () {
-                ColorMatrix saturationMatrix = new ColorMatrix();
-                ColorMatrix brightnessMatrix = new ColorMatrix();
+            val animator = ViewAnimator()
+            val interpolator = AccelerateDecelerateInterpolator()
+            animator.interpolator = interpolator
+            animator.setOnSetupValuesListener {
+                animator.setFloatValues(0f, 1f) // TODO: start values
+                animator.duration = 800
+            }
+            val saturationMatrix = ColorMatrix();
+            val brightnessMatrix = ColorMatrix();
+            animator.addUpdateListener {
+                animator.target?.let { view ->
 
-                @Override
-                public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                    ImageView imageView =(ImageView) animator . getTarget ();
-                    float fraction = animator . getAnimatedFraction ();
-
-                    saturationMatrix.setSaturation((Float) animator . getAnimatedValue ());
-
-                    float scale = 2-interpolator.getInterpolation(Math.min(fraction * 4 / 3, 1));
-                    brightnessMatrix.setScale(scale, scale, scale, 1);
-
-                    saturationMatrix.preConcat(brightnessMatrix);
-                    imageView.setColorFilter(new ColorMatrixColorFilter (saturationMatrix));
-                    imageView.setAlpha(interpolator.getInterpolation(Math.min(fraction * 2, 1)));
+                    saturationMatrix.setSaturation(animator.animatedValue as Float)
+                    val scale = 2 - interpolator.getInterpolation(Math.min(animator.animatedFraction * 4 / 3, 1f));
+                    brightnessMatrix.setScale(scale, scale, scale, 1f)
+                    saturationMatrix.preConcat(brightnessMatrix)
+                    (view as ImageView).colorFilter = ColorMatrixColorFilter(saturationMatrix);
+                    view.setAlpha(interpolator.getInterpolation(Math.min(animator.animatedFraction * 2, 1f)));
                 }
-            });
+
+            }
             return animator;
         }
-
+        @JvmStatic
         fun getBrightnessSaturationFadeOutAnimator(): Animator {
             val animator = ViewAnimator()
             val interpolator = AccelerateDecelerateInterpolator()
@@ -244,71 +234,118 @@ class AnimUtils {
             })
             return animator
         }
-
+        @JvmStatic
         fun lerpColor(interpolation: Float, val1: Int, val2: Int): Float {
-            int a =(int) MathUtils . lerp (val1 > > 24, val2 >> 24, interpolation);
-            int r =(int) MathUtils . lerp ((val1 > > 16) & 0xff, (val2 >> 16) & 0xff, interpolation);
-            int g =(int) MathUtils . lerp ((val1 > > 8) & 0xff, (val2 >> 8) & 0xff, interpolation);
-            int b =(int) MathUtils . lerp (val1 & 0xff, val2 & 0xff, interpolation);
-            return Color.argb(a, r, g, b);
+            /* int a =(int) MathUtils . lerp (val1 > > 24, val2 >> 24, interpolation);
+             int r =(int) MathUtils . lerp ((val1 > > 16) & 0xff, (val2 >> 16) & 0xff, interpolation);
+             int g =(int) MathUtils . lerp ((val1 > > 8) & 0xff, (val2 >> 8) & 0xff, interpolation);
+             int b =(int) MathUtils . lerp (val1 & 0xff, val2 & 0xff, interpolation);
+             return Color.argb(a, r, g, b);*/
+            return 1f
         }
-
+        @JvmStatic
         fun setupElevationAnimator(stateAnimator: StateAnimator, view: ShadowView) {
-            {
-                final ValueAnimator animator = ValueAnimator.ofFloat(0, 0);
-                animator.setDuration(200);
-                animator.setInterpolator(new FastOutSlowInInterpolator ());
-                Animator.AnimatorListener animatorListener = new AnimatorListenerAdapter() {
-                    @Override
-                    public void onAnimationStart(Animator animation) {
-                        animator.setFloatValues(view.getTranslationZ(), ((View) view).getResources().getDimension(R.dimen.material_translationButton));
+
+            run {
+                val animator = ValueAnimator.ofFloat(0f, 0f)
+                animator.duration = 200
+                animator.interpolator = FastOutSlowInInterpolator()
+                val animatorListener = object : AnimatorListenerAdapter() {
+                    override fun onAnimationStart(animation: Animator) {
+                        animator.setFloatValues(view.translationZ, (view as View).resources.getDimension(R.dimen.material_translationButton))
                     }
-                };
-                animator.addUpdateListener(animation -> view.setTranslationZ((Float) animation.getAnimatedValue()));
-                stateAnimator.addState(new int []{ android.R.attr.state_pressed }, animator, animatorListener);
+                }
+                animator.addUpdateListener { animation -> view.translationZ = animation.animatedValue as Float }
+                stateAnimator.addState(intArrayOf(android.R.attr.state_pressed), animator, animatorListener)
             }
-            {
-                final ValueAnimator animator = ValueAnimator.ofFloat(0, 0);
-                animator.setDuration(200);
-                animator.setInterpolator(new FastOutSlowInInterpolator ());
-                Animator.AnimatorListener animatorListener = new AnimatorListenerAdapter() {
-                    @Override
-                    public void onAnimationStart(Animator animation) {
-                        animator.setFloatValues(view.getTranslationZ(), 0);
+            run {
+                val animator = ValueAnimator.ofFloat(0f, 0f)
+                animator.duration = 200
+                animator.interpolator = FastOutSlowInInterpolator()
+                val animatorListener = object : AnimatorListenerAdapter() {
+                    override fun onAnimationStart(animation: Animator) {
+                        animator.setFloatValues(view.translationZ, 0f)
                     }
-                };
-                animator.addUpdateListener(animation -> view.setTranslationZ((Float) animation.getAnimatedValue()));
-                stateAnimator.addState(new int []{ -android.R.attr.state_pressed, android.R.attr.state_enabled }, animator, animatorListener);
+                }
+                animator.addUpdateListener { animation -> view.translationZ = animation.animatedValue as Float }
+                stateAnimator.addState(intArrayOf(-android.R.attr.state_pressed, android.R.attr.state_enabled), animator, animatorListener)
             }
-            {
-                final ValueAnimator animator = ValueAnimator.ofFloat(0, 0);
-                animator.setDuration(200);
-                animator.setInterpolator(new FastOutSlowInInterpolator ());
-                Animator.AnimatorListener animatorListener = new AnimatorListenerAdapter() {
-                    @Override
-                    public void onAnimationStart(Animator animation) {
-                        animator.setFloatValues(view.getElevation(), 0);
+            run {
+                val animator = ValueAnimator.ofFloat(0f, 0f)
+                animator.duration = 200
+                animator.interpolator = FastOutSlowInInterpolator()
+                val animatorListener = object : AnimatorListenerAdapter() {
+                    override fun onAnimationStart(animation: Animator) {
+                        animator.setFloatValues(view.elevation, 0f)
                     }
-                };
-                animator.addUpdateListener(animation -> view.setTranslationZ((Float) animation.getAnimatedValue()));
-                stateAnimator.addState(new int []{ android.R.attr.state_enabled }, animator, animatorListener);
+                }
+                animator.addUpdateListener { animation -> view.translationZ = animation.animatedValue as Float }
+                stateAnimator.addState(intArrayOf(android.R.attr.state_enabled), animator, animatorListener)
             }
-            {
-                final ValueAnimator animator = ValueAnimator.ofFloat(0, 0);
-                animator.setDuration(200);
-                animator.setInterpolator(new FastOutSlowInInterpolator ());
-                Animator.AnimatorListener animatorListener = new AnimatorListenerAdapter() {
-                    @Override
-                    public void onAnimationStart(Animator animation) {
-                        animator.setFloatValues(view.getTranslationZ(), -view.getElevation());
+            run {
+                val animator = ValueAnimator.ofFloat(0f, 0f)
+                animator.duration = 200
+                animator.interpolator = FastOutSlowInInterpolator()
+                val animatorListener = object : AnimatorListenerAdapter() {
+                    override fun onAnimationStart(animation: Animator) {
+                        animator.setFloatValues(view.translationZ, -view.elevation)
                     }
-                };
-                animator.addUpdateListener(animation -> view.setTranslationZ((Float) animation.getAnimatedValue()));
-                stateAnimator.addState(new int []{ -android.R.attr.state_enabled }, animator, animatorListener);
+                }
+                animator.addUpdateListener { animation -> view.translationZ = animation.animatedValue as Float }
+                stateAnimator.addState(intArrayOf(-android.R.attr.state_enabled), animator, animatorListener)
             }
+           /* run{
+                val animator = ValueAnimator.ofFloat(0f, 0f)
+                animator.duration = 200;
+                animator.interpolator = FastOutSlowInInterpolator();
+
+                animator.addUpdateListener { animation -> view.translationZ = animation.animatedValue as Float }
+
+                stateAnimator.addState(arrayOf(android.R.attr.state_pressed), animator, object : AnimatorListenerAdapter() {
+                    override fun onAnimationStart(animation: Animator?) {
+                        animator.setFloatValues(view.translationZ, (view as View).resources.getDimension(R.dimen.material_translationButton))
+                    }
+                })
+            }
+            run{
+                val animator = ValueAnimator.ofFloat(0f, 0f);
+                animator.duration = 200
+                animator.interpolator = FastOutSlowInInterpolator()
+
+
+                animator.addUpdateListener { animation ->
+                    view.translationZ = animation.animatedValue as Float
+                }
+
+                stateAnimator.addState(arrayOf(-android.R.attr.state_pressed, android.R.attr.state_enabled), animator, object : AnimatorListenerAdapter() {
+                    override fun onAnimationStart(animation: Animator?) {
+                        animator.setFloatValues(view.translationZ, 0f)
+                    }
+                })
+            }
+            run{
+                val animator = ValueAnimator.ofFloat(0f, 0f)
+                animator.duration = 200
+                animator.interpolator = FastOutSlowInInterpolator()
+                animator.addUpdateListener { animation -> view.translationZ = animation.animatedValue as Float }
+                stateAnimator.addState(arrayOf( android.R.attr.state_enabled ), animator, object : AnimatorListenerAdapter(){
+                    override fun onAnimationStart(animation: Animator?) {
+                        animator.setFloatValues(view.elevation, 0f);
+                    }
+                })
+            }
+            run {
+                val animator = ValueAnimator.ofFloat(0f, 0f);
+                animator.duration = 200;
+                animator.interpolator = FastOutSlowInInterpolator ()
+                animator.addUpdateListener({animation -> view.translationZ = animation.animatedValue as Float });
+                stateAnimator.addState(arrayOf( -android.R.attr.state_enabled ), animator, object : AnimatorListenerAdapter(){
+                    override fun onAnimationStart(animation: Animator?) {
+                        animator.setFloatValues(view.translationZ, -view.elevation);
+                    }
+                })
+            }*/
         }
-
-
         @JvmStatic()
         fun get(animIn: Boolean, @Style type: Int): Animator? {
             return when (type) {

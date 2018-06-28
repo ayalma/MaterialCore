@@ -35,6 +35,7 @@ public class Test extends AppCompatActivity {
         TextView text = findViewById(R.id.content);
 
         btn.setOnClickListener(v -> {
+            btn.animateVisibility(View.GONE);
             Notification.Builder notify = new Notification.Builder(this).setContentText("hello!")
                     .setStyle(new Notification.BigTextStyle().bigText("sup!"))
                     .setContentTitle("sup").addAction(R.drawable.ic_launcher_foreground,"hello", PendingIntent.getActivity(this, 0, new Intent(this, Test.class), 0))

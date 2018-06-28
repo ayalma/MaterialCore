@@ -1,13 +1,9 @@
-package material.core.animation;
+package material.core.animation
 
-import android.animation.Animator;
-import android.util.StateSet;
-import android.view.View;
-import android.view.animation.Animation;
-import material.R.id.start
-
-import java.lang.ref.WeakReference;
-import kotlin.collections.ArrayList
+import android.animation.Animator
+import android.util.StateSet
+import android.view.View
+import java.lang.ref.WeakReference
 
 class StateAnimator(target: AnimatedView) {
     private val mTuples = ArrayList<Tuple>()
@@ -40,7 +36,7 @@ class StateAnimator(target: AnimatedView) {
      * @param specs     drawable state specs to match against
      * @param animation The Animation to run when the specs match
      */
-    fun addState(specs: Array<Int>, animation: Animator, listener: Animator.AnimatorListener) {
+    fun addState(specs: IntArray, animation: Animator, listener: Animator.AnimatorListener) {
         val tuple = Tuple(specs, animation, listener);
         animation.addListener(mAnimationListener);
         mTuples.add(tuple);
@@ -82,11 +78,11 @@ class StateAnimator(target: AnimatedView) {
     /**
      * Called by View
      */
-    fun setState(state: Array<Int>) {
+    fun setState(state: IntArray) {
         var match: Tuple? = null
 
         mTuples.forEach {
-            if (StateSet.stateSetMatches(it.mSpecs.toIntArray(), state.toIntArray())) match = it;
+            if (StateSet.stateSetMatches(it.mSpecs, state)) match = it;
         }
 
         if (match == lastMatch) return
@@ -138,7 +134,7 @@ class StateAnimator(target: AnimatedView) {
         }
     }
 
-    inner class Tuple(val mSpecs: Array<Int>, val animation: Animator, val listener: Animator.AnimatorListener)
+    inner class Tuple(val mSpecs: IntArray, val animation: Animator, val listener: Animator.AnimatorListener)
 
     init {
         setTarget(target)
