@@ -20,11 +20,7 @@ import material.core.shadow.ShadowView
 
 
 class AnimUtils {
-
-
-    interface AnimatorFactory {
-        fun getAnimator(): Animator
-    }
+    
 
     companion object {
         @JvmStatic
