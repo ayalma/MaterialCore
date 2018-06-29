@@ -25,11 +25,12 @@ public class Test extends AppCompatActivity {
         view.setClickable(true);
 
         btn.setOnClickListener(v -> {
-            view.animateVisibility((view.getVisibility() != View.VISIBLE)? View.VISIBLE:View.INVISIBLE);
+            view.animateVisibility( view.isVisible() ? View.INVISIBLE : View.VISIBLE);
 
         });
 
-        view.setOnClickListener((v)-> btn.animateVisibility((btn.getVisibility() != View.VISIBLE)? View.VISIBLE:View.GONE));
+        view.setOnClickListener((v)->
+                btn.animateVisibility( btn.isVisible() ? View.INVISIBLE : View.VISIBLE));
 
     }
 

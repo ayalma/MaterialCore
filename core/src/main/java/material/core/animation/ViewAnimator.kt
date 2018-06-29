@@ -1,4 +1,3 @@
-/*
 package material.core.animation;
 
 import android.animation.ValueAnimator
@@ -27,4 +26,3 @@ class ViewAnimator : ValueAnimator() {
 
 }
 
-*/

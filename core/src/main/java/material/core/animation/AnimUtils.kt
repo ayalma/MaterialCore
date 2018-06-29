@@ -1,4 +1,3 @@
-/*
 package material.core.animation;
 
 import android.animation.Animator
@@ -111,13 +110,13 @@ class AnimUtils {
                     animator.setFloatValues(view.alpha, 1f)
                     animator.setDuration((200 * (1 - view.alpha)).toLong())
                 }
-            });
+            })
             animator.addUpdateListener({ valueAnimator ->
                 animator.target?.let { view ->
                     view.alpha = valueAnimator.animatedValue as Float
                     view.translationY = Math.min(view.height / 2f, view.resources.getDimension(R.dimen.material_1dip) * 50.0f) * (1 - valueAnimator.animatedValue as Float)
                 }
-            });
+            })
             return animator
         }
 
@@ -142,32 +141,7 @@ class AnimUtils {
             })
             return animator
         }
-
-
         @JvmStatic
-        fun getSlideInAnimator(): ValueAnimator {
-            val animator =  ViewAnimator();
-            animator.interpolator = LinearOutSlowInInterpolator();
-            animator.setOnSetupValuesListener({
-                val view = animator.target
-                animator.setFloatValues(view!!.translationY, 0f);
-                var height = view.measuredHeight;
-                val layoutParams = view.layoutParams;
-                if (layoutParams != null && layoutParams is ViewGroup.MarginLayoutParams)
-                    height += layoutParams.bottomMargin;
-                val duration =  (200 * Math.abs(view.translationY / height))
-                animator.duration = duration.toLong();
-            })
-            animator.addUpdateListener({valueAnimator ->
-                val view = animator.target;
-                view?.translationY = valueAnimator.animatedValue as Float
-            });
-            return animator;
-        }
-
-
-*/
-/*        @JvmStatic
         fun getSlideInAnimator(): ValueAnimator {
             val animator = ViewAnimator()
             animator.interpolator = LinearOutSlowInInterpolator()
@@ -188,38 +162,15 @@ class AnimUtils {
             }
 
             return animator
-        }*//*
-
+        }
 
         @JvmStatic
         fun getSlideOutAnimator() = getSlideOutAnimator(Gravity.BOTTOM)
 
 
+
+
         @JvmStatic
-        fun getSlideOutAnimator(gravity: Int): ValueAnimator {
-
-            val animator =  ViewAnimator();
-            animator.interpolator = FastOutLinearInInterpolator();
-            animator.setOnSetupValuesListener( {
-                val view = animator.target;
-                var height = view!!.measuredHeight;
-               val layoutParams = view?.layoutParams;
-                val top = gravity.and(Gravity.BOTTOM) == Gravity.BOTTOM
-                if (layoutParams != null && layoutParams is ViewGroup.MarginLayoutParams)
-                    height +=  if (top)  layoutParams.bottomMargin else layoutParams.topMargin
-                animator.setFloatValues(view.translationY, if (top) height.toFloat() else (-height).toFloat())
-                val duration =  (200 * (1 - Math.abs(view.translationY / height)));
-                animator.duration = duration.toLong();
-            })
-            animator.addUpdateListener({valueAnimator ->
-                val view = animator.target;
-                view?.translationY = valueAnimator.animatedValue as Float;
-            });
-            return animator;
-        }
-
-        */
-/* @JvmStatic
         fun getSlideOutAnimator(gravity: Int): ValueAnimator {
 
             val animator = ViewAnimator();
@@ -242,7 +193,6 @@ class AnimUtils {
             })
             return animator
         }
-*//*
 
         @JvmStatic
         fun getBrightnessSaturationFadeInAnimator(): Animator {
@@ -259,15 +209,15 @@ class AnimUtils {
                 animator.target?.let { view ->
 
                     saturationMatrix.setSaturation(animator.animatedValue as Float)
-                    val scale = 2 - interpolator.getInterpolation(Math.min(animator.animatedFraction * 4 / 3, 1f));
+                    val scale = 2 - interpolator.getInterpolation(Math.min(animator.animatedFraction * 4 / 3, 1f))
                     brightnessMatrix.setScale(scale, scale, scale, 1f)
                     saturationMatrix.preConcat(brightnessMatrix)
                     (view as ImageView).colorFilter = ColorMatrixColorFilter(saturationMatrix);
-                    view.setAlpha(interpolator.getInterpolation(Math.min(animator.animatedFraction * 2, 1f)));
+                    view.setAlpha(interpolator.getInterpolation(Math.min(animator.animatedFraction * 2, 1f)))
                 }
 
             }
-            return animator;
+            return animator
         }
 
         @JvmStatic
@@ -287,9 +237,9 @@ class AnimUtils {
                         saturationMatrix.setSaturation(animator.animatedValue as Float)
                         val scale = 2 - interpolator.getInterpolation(Math.min((1 - animator.animatedFraction) * 4f / 3f, 1f));
                         brightnessMatrix.setScale(scale, scale, scale, 1f)
-                        saturationMatrix.preConcat(brightnessMatrix);
+                        saturationMatrix.preConcat(brightnessMatrix)
                         (view as ImageView).colorFilter = ColorMatrixColorFilter(saturationMatrix)
-                        view.alpha = interpolator.getInterpolation(Math.min((1 - animator.animatedFraction) * 2f, 1f));
+                        view.alpha = interpolator.getInterpolation(Math.min((1 - animator.animatedFraction) * 2f, 1f))
                     }
                 }
 
@@ -299,13 +249,11 @@ class AnimUtils {
 
         @JvmStatic
         fun lerpColor(interpolation: Float, val1: Int, val2: Int): Float {
-            */
-/* int a =(int) MathUtils . lerp (val1 > > 24, val2 >> 24, interpolation);
+            /* int a =(int) MathUtils . lerp (val1 > > 24, val2 >> 24, interpolation);
              int r =(int) MathUtils . lerp ((val1 > > 16) & 0xff, (val2 >> 16) & 0xff, interpolation);
              int g =(int) MathUtils . lerp ((val1 > > 8) & 0xff, (val2 >> 8) & 0xff, interpolation);
              int b =(int) MathUtils . lerp (val1 & 0xff, val2 & 0xff, interpolation);
-             return Color.argb(a, r, g, b);*//*
-
+             return Color.argb(a, r, g, b);*/
             return 1f
         }
 
@@ -378,4 +326,3 @@ class AnimUtils {
         }
     }
 }
-*/

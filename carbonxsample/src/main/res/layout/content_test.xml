@@ -15,19 +15,18 @@
         app:material_elevation="@dimen/material_elevationHigh"
         android:background="@color/material_white"
         android:layout_width="200dp"
-        app:material_elevationShadowColor="@color/colorAccent"
         android:clickable="true"
-        app:material_outAnimation="fly"
-        app:material_inAnimation="slide"
-        app:material_rippleColor="@color/material_blue_700"
+        app:material_outAnimation="pop"
+        app:material_inAnimation="pop"
+        app:material_rippleColor="@color/material_amber_50"
         android:layout_height="200dp"
-        app:material_cornerRadius="100dp"
+        app:material_cornerRadius="8dp"
         >
 
     </mat.widget.LinearLayout>
     <mat.widget.Button
-        app:material_inAnimation="pop"
-        app:material_outAnimation="pop"
+        app:material_inAnimation="fade"
+        app:material_outAnimation="fade"
         android:layout_gravity="right"
         android:id="@+id/ok"
         android:layout_width="wrap_content"
