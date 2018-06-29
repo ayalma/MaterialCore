@@ -1,3 +1,4 @@
+/*
 package material.core.animation;
 
 import android.animation.Animator
@@ -18,9 +19,8 @@ import material.R
 import material.core.shadow.ShadowView
 
 
-
 class AnimUtils {
-    
+
 
     companion object {
         @JvmStatic
@@ -41,6 +41,7 @@ class AnimUtils {
             }
             return animator
         }
+
         @JvmStatic
         fun getFadeOutAnimator(): ValueAnimator {
             val animator = ViewAnimator()
@@ -58,6 +59,7 @@ class AnimUtils {
             }
             return animator
         }
+
         @JvmStatic
         fun getPopInAnimator(): Animator {
             val animator = ViewAnimator();
@@ -78,6 +80,7 @@ class AnimUtils {
             })
             return animator;
         }
+
         @JvmStatic
         fun getPopOutAnimator(): Animator {
             val animator = ViewAnimator()
@@ -97,6 +100,7 @@ class AnimUtils {
             })
             return animator;
         }
+
         @JvmStatic
         fun getFlyInAnimator(): ValueAnimator {
             val animator = ViewAnimator();
@@ -116,6 +120,7 @@ class AnimUtils {
             });
             return animator
         }
+
         @JvmStatic
         fun getFlyOutAnimator(): ValueAnimator {
 
@@ -137,31 +142,88 @@ class AnimUtils {
             })
             return animator
         }
+
+
         @JvmStatic
         fun getSlideInAnimator(): ValueAnimator {
-            val animator = ViewAnimator()
+            val animator =  ViewAnimator();
             animator.interpolator = LinearOutSlowInInterpolator();
             animator.setOnSetupValuesListener({
+                val view = animator.target
+                animator.setFloatValues(view!!.translationY, 0f);
+                var height = view.measuredHeight;
+                val layoutParams = view.layoutParams;
+                if (layoutParams != null && layoutParams is ViewGroup.MarginLayoutParams)
+                    height += layoutParams.bottomMargin;
+                val duration =  (200 * Math.abs(view.translationY / height))
+                animator.duration = duration.toLong();
+            })
+            animator.addUpdateListener({valueAnimator ->
+                val view = animator.target;
+                view?.translationY = valueAnimator.animatedValue as Float
+            });
+            return animator;
+        }
+
+
+*/
+/*        @JvmStatic
+        fun getSlideInAnimator(): ValueAnimator {
+            val animator = ViewAnimator()
+            animator.interpolator = LinearOutSlowInInterpolator()
+            animator.setOnSetupValuesListener {
                 animator.target?.let { view ->
                     animator.setFloatValues(view.translationY, 0f)
                     var height = view.measuredHeight
                     view.layoutParams?.let { layoutParams ->
-                        if (layoutParams is ViewGroup.MarginLayoutParams) height += layoutParams.bottomMargin
-                        animator.duration = (200 * Math.abs(view.translationY / height)).toLong()
+                        if (layoutParams is ViewGroup.MarginLayoutParams)
+                            height += layoutParams.bottomMargin
                     }
+
+                    animator.duration = (200 * Math.abs(view.translationY / height)).toLong()
                 }
-            })
-            animator.addUpdateListener({ valueAnimator ->
+            }
+            animator.addUpdateListener { valueAnimator ->
                 animator.target?.translationY = valueAnimator.animatedValue as Float
-            })
+            }
+
             return animator
-        }
+        }*//*
+
+
         @JvmStatic
-        fun getSlideOutAnimator() = getSlideOutAnimator(Gravity.BOTTOM);
+        fun getSlideOutAnimator() = getSlideOutAnimator(Gravity.BOTTOM)
+
+
         @JvmStatic
         fun getSlideOutAnimator(gravity: Int): ValueAnimator {
-            val animator = ViewAnimator();
+
+            val animator =  ViewAnimator();
             animator.interpolator = FastOutLinearInInterpolator();
+            animator.setOnSetupValuesListener( {
+                val view = animator.target;
+                var height = view!!.measuredHeight;
+               val layoutParams = view?.layoutParams;
+                val top = gravity.and(Gravity.BOTTOM) == Gravity.BOTTOM
+                if (layoutParams != null && layoutParams is ViewGroup.MarginLayoutParams)
+                    height +=  if (top)  layoutParams.bottomMargin else layoutParams.topMargin
+                animator.setFloatValues(view.translationY, if (top) height.toFloat() else (-height).toFloat())
+                val duration =  (200 * (1 - Math.abs(view.translationY / height)));
+                animator.duration = duration.toLong();
+            })
+            animator.addUpdateListener({valueAnimator ->
+                val view = animator.target;
+                view?.translationY = valueAnimator.animatedValue as Float;
+            });
+            return animator;
+        }
+
+        */
+/* @JvmStatic
+        fun getSlideOutAnimator(gravity: Int): ValueAnimator {
+
+            val animator = ViewAnimator();
+            animator.interpolator = FastOutLinearInInterpolator()
             animator.setOnSetupValuesListener({
                 animator.target?.let { view ->
                     var height = view.measuredHeight
@@ -169,9 +231,10 @@ class AnimUtils {
                     view.layoutParams?.let { layoutParams ->
                         if (layoutParams is ViewGroup.MarginLayoutParams)
                             height += if (top) layoutParams.bottomMargin else layoutParams.topMargin
-                        animator.setFloatValues(view.translationY, if (top) height.toFloat() else -height.toFloat())
-                        animator.duration = (200 * (1 - Math.abs(view.translationY / height))).toLong()
                     }
+
+                    animator.setFloatValues(view.translationY, if (top) height.toFloat() else -height.toFloat())
+                    animator.duration = (200 * (1 - Math.abs(view.translationY / height))).toLong()
                 }
             })
             animator.addUpdateListener({
@@ -179,6 +242,8 @@ class AnimUtils {
             })
             return animator
         }
+*//*
+
         @JvmStatic
         fun getBrightnessSaturationFadeInAnimator(): Animator {
             val animator = ViewAnimator()
@@ -204,6 +269,7 @@ class AnimUtils {
             }
             return animator;
         }
+
         @JvmStatic
         fun getBrightnessSaturationFadeOutAnimator(): Animator {
             val animator = ViewAnimator()
@@ -230,15 +296,19 @@ class AnimUtils {
             })
             return animator
         }
+
         @JvmStatic
         fun lerpColor(interpolation: Float, val1: Int, val2: Int): Float {
-            /* int a =(int) MathUtils . lerp (val1 > > 24, val2 >> 24, interpolation);
+            */
+/* int a =(int) MathUtils . lerp (val1 > > 24, val2 >> 24, interpolation);
              int r =(int) MathUtils . lerp ((val1 > > 16) & 0xff, (val2 >> 16) & 0xff, interpolation);
              int g =(int) MathUtils . lerp ((val1 > > 8) & 0xff, (val2 >> 8) & 0xff, interpolation);
              int b =(int) MathUtils . lerp (val1 & 0xff, val2 & 0xff, interpolation);
-             return Color.argb(a, r, g, b);*/
+             return Color.argb(a, r, g, b);*//*
+
             return 1f
         }
+
         @JvmStatic
         fun setupElevationAnimator(stateAnimator: StateAnimator, view: ShadowView) {
 
@@ -290,58 +360,9 @@ class AnimUtils {
                 animator.addUpdateListener { animation -> view.translationZ = animation.animatedValue as Float }
                 stateAnimator.addState(intArrayOf(-android.R.attr.state_enabled), animator, animatorListener)
             }
-           /* run{
-                val animator = ValueAnimator.ofFloat(0f, 0f)
-                animator.duration = 200;
-                animator.interpolator = FastOutSlowInInterpolator();
 
-                animator.addUpdateListener { animation -> view.translationZ = animation.animatedValue as Float }
-
-                stateAnimator.addState(arrayOf(android.R.attr.state_pressed), animator, object : AnimatorListenerAdapter() {
-                    override fun onAnimationStart(animation: Animator?) {
-                        animator.setFloatValues(view.translationZ, (view as View).resources.getDimension(R.dimen.material_translationButton))
-                    }
-                })
-            }
-            run{
-                val animator = ValueAnimator.ofFloat(0f, 0f);
-                animator.duration = 200
-                animator.interpolator = FastOutSlowInInterpolator()
-
-
-                animator.addUpdateListener { animation ->
-                    view.translationZ = animation.animatedValue as Float
-                }
-
-                stateAnimator.addState(arrayOf(-android.R.attr.state_pressed, android.R.attr.state_enabled), animator, object : AnimatorListenerAdapter() {
-                    override fun onAnimationStart(animation: Animator?) {
-                        animator.setFloatValues(view.translationZ, 0f)
-                    }
-                })
-            }
-            run{
-                val animator = ValueAnimator.ofFloat(0f, 0f)
-                animator.duration = 200
-                animator.interpolator = FastOutSlowInInterpolator()
-                animator.addUpdateListener { animation -> view.translationZ = animation.animatedValue as Float }
-                stateAnimator.addState(arrayOf( android.R.attr.state_enabled ), animator, object : AnimatorListenerAdapter(){
-                    override fun onAnimationStart(animation: Animator?) {
-                        animator.setFloatValues(view.elevation, 0f);
-                    }
-                })
-            }
-            run {
-                val animator = ValueAnimator.ofFloat(0f, 0f);
-                animator.duration = 200;
-                animator.interpolator = FastOutSlowInInterpolator ()
-                animator.addUpdateListener({animation -> view.translationZ = animation.animatedValue as Float });
-                stateAnimator.addState(arrayOf( -android.R.attr.state_enabled ), animator, object : AnimatorListenerAdapter(){
-                    override fun onAnimationStart(animation: Animator?) {
-                        animator.setFloatValues(view.translationZ, -view.elevation);
-                    }
-                })
-            }*/
         }
+
         @JvmStatic()
         fun get(animIn: Boolean, @Style type: Int): Animator? {
             return when (type) {
@@ -357,3 +378,4 @@ class AnimUtils {
         }
     }
 }
+*/

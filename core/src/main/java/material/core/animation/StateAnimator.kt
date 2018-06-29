@@ -1,32 +1,65 @@
 package material.core.animation
-
 import android.animation.Animator
 import android.util.StateSet
-import android.view.View
+import android.view.animation.Animation
 import java.lang.ref.WeakReference
+import java.util.*
 
 class StateAnimator(target: AnimatedView) {
-    private val mTuples = ArrayList<Tuple>()
+    /**
+     * @hide
+     */
+    private var tuples = ArrayList<Tuple>()
 
     private var lastMatch: Tuple? = null
+    /**
+     * Returns the current [Animation] which is started because of a state
+     * change.
+     *
+     * @return The currently running Animation or null if no Animation is running
+     */
     private var runningAnimation: Animator? = null
+
     private var viewRef: WeakReference<AnimatedView>? = null
 
-    init {
-        setTarget(target)
-    }
     private val mAnimationListener = object : Animator.AnimatorListener {
-        override fun onAnimationCancel(animation: Animator?) {}
 
-        override fun onAnimationStart(animation: Animator?) {}
+        override fun onAnimationStart(animation: Animator) {
 
-        override fun onAnimationRepeat(animation: Animator?) {}
+        }
 
-        override fun onAnimationEnd(animation: Animator?) {
+        override fun onAnimationEnd(animation: Animator) {
             if (runningAnimation == animation) {
                 runningAnimation = null
             }
         }
+
+        override fun onAnimationCancel(animation: Animator) {
+
+        }
+
+        override fun onAnimationRepeat(animation: Animator) {
+
+        }
+
+    }
+
+
+    internal var target: AnimatedView?
+        get() = viewRef?.get()
+        set(view) {
+            if (target == view) {
+                return
+            }
+            target?.let { clearTarget() }
+
+            view?.let {
+                viewRef = WeakReference(it)
+            }
+        }
+
+    init {
+        this.target = target
     }
 
     /**
@@ -37,37 +70,14 @@ class StateAnimator(target: AnimatedView) {
      * @param animation The Animation to run when the specs match
      */
     fun addState(specs: IntArray, animation: Animator, listener: Animator.AnimatorListener) {
-        val tuple = Tuple(specs, animation, listener);
-        animation.addListener(mAnimationListener);
-        mTuples.add(tuple);
+        val tuple = Tuple(specs, animation, listener)
+        animation.addListener(mAnimationListener)
+        tuples.add(tuple)
     }
 
-    /**
-     * Returns the current {@link Animation} which is started because of a state
-     * change.
-     *
-     * @return The currently running Animation or null if no Animation is running
-     */
-    fun getRunningAnimation(): Animator? = runningAnimation
-
-    fun getTarget(): AnimatedView? = viewRef?.get()
-
-    fun setTarget(view: AnimatedView?) {
-        val current = getTarget();
-        if (current == view) {
-            return;
-        }
-        if (current != null) {
-            clearTarget();
-        }
-        if (view != null) {
-            viewRef = WeakReference(view);
-        }
-    }
-
-    fun clearTarget() {
-        mTuples.forEach {
-            if (it.animation == getTarget())
+    private fun clearTarget() {
+        tuples.forEach {
+            if (it.animation == target?.getAnimator())
                 it.animation.cancel()
         }
         viewRef = null
@@ -80,64 +90,54 @@ class StateAnimator(target: AnimatedView) {
      */
     fun setState(state: IntArray) {
         var match: Tuple? = null
-
-        mTuples.forEach {
-            if (StateSet.stateSetMatches(it.mSpecs, state)) match = it;
+        run breaker@{
+            tuples.forEach {
+                if (StateSet.stateSetMatches(it.specs, state)) {
+                    match = it
+                    return@breaker
+                }
+            }
         }
 
         if (match == lastMatch) return
 
-        lastMatch?.let {
-            cancel()
-        }
+        lastMatch?.let { cancel() }
 
-        lastMatch = match;
+        lastMatch = match
 
-        match?.let { m ->
+        match?.let {m ->
             viewRef?.get()?.let {
-                if ((it as View).visibility == View.VISIBLE)
-                    start(m)
+                start(m)
             }
         }
     }
 
-    fun start(match: Tuple) {
+    private fun start(match: Tuple) {
         match.listener.onAnimationStart(match.animation)
-        runningAnimation = match.animation;
+        runningAnimation = match.animation
         runningAnimation?.start()
     }
 
     private fun cancel() {
-        runningAnimation?.let { anim ->
-            getTarget()?.let {
-                if (it.getAnimator() == anim) anim.cancel()
-            }
-            runningAnimation = null
+        runningAnimation?.let { animator ->
+            if (target?.getAnimator() == animator)
+                animator.cancel()
         }
     }
 
     /**
-     * @hide
-     */
-    fun getTuples(): ArrayList<Tuple> = mTuples;
-
-    /**
-     * If there is an animation running for a recent state change, ends it. <p> This causes the
+     * If there is an animation running for a recent state change, ends it.
+     *
+     * This causes the
      * animation to assign the end value(s) to the View.
      */
     fun jumpToCurrentState() {
-        if (runningAnimation != null) {
-            val view = getTarget();
-            if (view != null && view.getAnimator() == runningAnimation) {
-                runningAnimation?.cancel();
-            }
+        runningAnimation?.let { animator ->
+            if (target?.getAnimator() == animator)
+                animator.cancel()
         }
     }
 
-    inner class Tuple(val mSpecs: IntArray, val animation: Animator, val listener: Animator.AnimatorListener)
-
-    init {
-        setTarget(target)
-    }
+    internal class Tuple constructor(val specs: IntArray, val animation: Animator, val listener: Animator.AnimatorListener)
 
 }

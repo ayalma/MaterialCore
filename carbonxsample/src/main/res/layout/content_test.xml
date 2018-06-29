@@ -1,87 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+
+<mat.widget.LinearLayout
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:material_overScroll="always"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="ayalma.com.materialxsample.Test"
-    tools:showIn="@layout/activity_test"
-    android:fillViewport="true"
-    android:background="@color/landscapeView_fogColor">
-
-<mat.widget.FrameLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:background="@color/material_red_50"
+    android:padding="15dp">
     <mat.widget.LinearLayout
+        android:id="@+id/view"
         app:material_elevation="@dimen/material_elevationHigh"
-        android:background="@color/material_red_700"
+        android:background="@color/material_white"
         android:layout_width="200dp"
         app:material_elevationShadowColor="@color/colorAccent"
         android:clickable="true"
-        app:material_rippleColor="@color/material_white"
+        app:material_outAnimation="fly"
+        app:material_inAnimation="slide"
+        app:material_rippleColor="@color/material_blue_700"
         android:layout_height="200dp"
+        app:material_cornerRadius="100dp"
         >
 
     </mat.widget.LinearLayout>
     <mat.widget.Button
+        app:material_inAnimation="pop"
+        app:material_outAnimation="pop"
+        android:layout_gravity="right"
         android:id="@+id/ok"
-        style="@style/material_Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:layout_margin="@dimen/material_margin"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        app:material_outAnimation="fly"
-        app:material_inAnimation="slide"
         android:text="نشون بده!"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:material_rippleStyle="over" />
-</mat.widget.FrameLayout>
-    <mat.widget.InputLayout
-        android:id="@id/inpuLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ok"
-        app:material_label="@string/app_name">
 
-        <mat.widget.EditText
-            android:id="@+id/inputField"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </mat.widget.InputLayout>
+        app:material_rippleStyle="over"
+    />
 
 
+</mat.widget.LinearLayout>
 
-    <mat.widget.Divider
-        android:id="@+id/div"
-        android:layout_width="match_parent"
-        android:layout_margin="@dimen/material_marginHalf"
-        android:layout_height="25dp" />
 
-    <mat.widget.TextView
-        android:id="@+id/content"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inpuLayout" />
-
-</android.support.constraint.ConstraintLayout>
 
