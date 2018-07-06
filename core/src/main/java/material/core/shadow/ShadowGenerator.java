@@ -15,6 +15,7 @@ import material.core.internal.MathUtils;
 import material.core.internal.WeakHashSet;
 import material.core.view.RoundedCornersView;
 
+
 public class ShadowGenerator {
     private static Object renderScript;
     private static Object blurShader;

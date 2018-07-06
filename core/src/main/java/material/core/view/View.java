@@ -34,8 +34,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import material.R;
-import material.core.MaterialContextWrapper;
 import material.core.Material;
+import material.core.MaterialContextWrapper;
 import material.core.animation.AnimatedColorStateList;
 import material.core.animation.AnimatedView;
 import material.core.animation.StateAnimator;

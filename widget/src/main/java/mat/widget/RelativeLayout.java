@@ -41,13 +41,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-
 import mat.R;
 import material.core.Material;
 import material.core.animation.AnimatedView;
 import material.core.animation.StateAnimator;
 import material.core.behavior.Behavior;
-
 import material.core.drawable.ripple.RippleDrawable;
 import material.core.drawable.ripple.RippleView;
 import material.core.internal.ElevationComparator;

@@ -4,7 +4,6 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
@@ -21,10 +20,10 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.support.annotation.FloatRange;
 import android.support.annotation.NonNull;
 import android.support.v4.view.ViewCompat;
+import android.support.v7.widget.AppCompatButton;
 import android.text.Layout;
 import android.text.StaticLayout;
 import android.text.TextPaint;
@@ -71,13 +70,14 @@ import material.core.view.VisibleView;
  * material features.
  */
 @SuppressLint("AppCompatCustomView")
-public class Button extends android.widget.Button
+public class Button extends AppCompatButton
         implements ShadowView, RippleView, TouchMarginView, StateAnimatorView, AnimatedView, RoundedCornersView, TintedView, StrokeView, AutoSizeTextView, RevealView, VisibleView {
 
     protected TextPaint paint = new TextPaint(Paint.ANTI_ALIAS_FLAG | Paint.FILTER_BITMAP_FLAG);
 
     public Button(Context context) {
-        super(context);
+       // super(context);
+        super(MaterialContextWrapper.wrap(context));
         initButton(null, android.R.attr.buttonStyle);
     }
 
@@ -104,11 +104,11 @@ public class Button extends android.widget.Button
         initButton(attrs, defStyleAttr);
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+/*    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public Button(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(Material.getThemedContext(context, attrs, R.styleable.Button, defStyleAttr, R.styleable.Button_material_theme), attrs, defStyleAttr, defStyleRes);
+       // super(Material.getThemedContext(context, attrs, R.styleable.Button, defStyleAttr, R.styleable.Button_material_theme), attrs, defStyleAttr, defStyleRes);
         initButton(attrs, defStyleAttr);
-    }
+    }*/
 
     private static int[] rippleIds = new int[]{
             R.styleable.Button_material_rippleColor,
@@ -594,6 +594,7 @@ public class Button extends android.widget.Button
         }
         this.translationZ = translationZ;
     }
+
 
     @Override
     public ShadowShape getShadowShape() {

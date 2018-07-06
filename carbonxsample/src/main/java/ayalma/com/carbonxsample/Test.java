@@ -6,7 +6,6 @@ import android.view.View;
 
 import mat.widget.Button;
 import mat.widget.LinearLayout;
-import mat.widget.Toolbar;
 
 public class Test extends AppCompatActivity {
 
@@ -14,8 +13,9 @@ public class Test extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+       /* Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);*/
+
 
 
         Button btn = findViewById(R.id.ok);
@@ -34,5 +34,10 @@ public class Test extends AppCompatActivity {
 
     }
 
+   /* @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(MaterialContextWrapper.wrap(newBase));
+    }
+*/
 
 }

@@ -36,7 +36,6 @@ import android.view.ViewOutlineProvider;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import mat.R;
 import material.core.Material;
 import material.core.animation.AnimatedColorStateList;

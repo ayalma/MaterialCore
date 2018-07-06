@@ -6,7 +6,7 @@ import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 
 public class MaterialContextThemeWrapper extends ContextThemeWrapper {
-    private LayoutInflater inflater;
+    private MaterialLayoutInflater inflater;
     private MaterialResources resources;
 
     public MaterialContextThemeWrapper(Context base, int theme) {
@@ -23,7 +23,7 @@ public class MaterialContextThemeWrapper extends ContextThemeWrapper {
     public Object getSystemService(String name) {
         if (LAYOUT_INFLATER_SERVICE.equals(name)) {
             if (inflater == null) {
-                inflater = LayoutInflater.from(getBaseContext()).cloneInContext(this);
+                inflater = new MaterialLayoutInflater( LayoutInflater.from(getBaseContext()).cloneInContext(this),getBaseContext());
             }
             return inflater;
         }

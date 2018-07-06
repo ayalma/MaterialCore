@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <declare-styleable name="ViewStub">
+        <attr name="inflatedId" format="reference"/>
+        <attr name="layout" format="reference"/>
+        <attr name="id" format="reference"/>
+
+    </declare-styleable>
+
+
     <attr name="material_frameLayoutStyle" format="reference"/>
     <declare-styleable name="FrameLayout">
         <attr name="material_theme"/>
@@ -40,6 +48,7 @@
     <declare-styleable name="FrameLayout_Layout">
         <attr name="material_anchor"/>
         <attr name="material_anchorGravity"/>
+
     </declare-styleable>
 
 

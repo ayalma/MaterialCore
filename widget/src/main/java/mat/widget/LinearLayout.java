@@ -100,6 +100,7 @@ public class LinearLayout extends android.widget.LinearLayout
     }
 
     public LinearLayout(Context context, AttributeSet attrs) {
+
         super(Material.getThemedContext(context, attrs, R.styleable.LinearLayout, R.attr.material_linearLayoutStyle, R.styleable.LinearLayout_material_theme), attrs);
         initLinearLayout(attrs, R.attr.material_linearLayoutStyle);
     }

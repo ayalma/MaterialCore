@@ -813,7 +813,7 @@ public class TextView extends android.widget.TextView
     }
 
     @Override
-    public void setElevationShadowColor(ColorStateList shadowColor) {
+    public void setElevationShadowColor(@NonNull ColorStateList shadowColor) {
         this.shadowColor = shadowColor;
         shadowColorFilter = shadowColor != null ? new PorterDuffColorFilter(shadowColor.getColorForState(getDrawableState(), shadowColor.getDefaultColor()), PorterDuff.Mode.MULTIPLY) : Shadow.DEFAULT_FILTER;
         setElevation(elevation);

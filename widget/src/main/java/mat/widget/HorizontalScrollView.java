@@ -18,7 +18,6 @@ import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 import android.view.ViewParent;
 
-
 import mat.R;
 import material.core.Material;
 import material.core.MaterialContextWrapper;
