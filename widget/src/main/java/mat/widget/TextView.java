@@ -58,6 +58,7 @@ import material.core.internal.TypefaceUtils;
 import material.core.shadow.Shadow;
 import material.core.shadow.ShadowGenerator;
 import material.core.shadow.ShadowShape;
+import material.core.shadow.ShadowUtil;
 import material.core.shadow.ShadowView;
 import material.core.view.AutoSizeTextMode;
 import material.core.view.AutoSizeTextView;
@@ -505,7 +506,7 @@ public class TextView extends android.widget.TextView
             cornerRadius = Math.min(cornerRadius, Math.min(getWidth(), getHeight()) / 2.0f);
             if (Material.IS_LOLLIPOP && renderingMode == RenderingMode.Auto) {
                 setClipToOutline(true);
-                setOutlineProvider(ShadowShape.viewOutlineProvider);
+                setOutlineProvider(ShadowUtil.viewOutlineProvider);
             } else {
                 cornersMask = new Path();
                 cornersMask.addRoundRect(new RectF(0, 0, getWidth(), getHeight()), cornerRadius, cornerRadius, Path.Direction.CW);
@@ -733,7 +734,7 @@ public class TextView extends android.widget.TextView
     }
 
     @Override
-    public ShadowShape getShadowShape() {
+    public @ShadowShape int getShadowShape() {
         if (cornerRadius == getWidth() / 2 && getWidth() == getHeight())
             return ShadowShape.CIRCLE;
         if (cornerRadius > 0)

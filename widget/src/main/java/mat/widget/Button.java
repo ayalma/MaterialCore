@@ -52,6 +52,7 @@ import material.core.internal.TypefaceUtils;
 import material.core.shadow.Shadow;
 import material.core.shadow.ShadowGenerator;
 import material.core.shadow.ShadowShape;
+import material.core.shadow.ShadowUtil;
 import material.core.shadow.ShadowView;
 import material.core.view.AutoSizeTextMode;
 import material.core.view.AutoSizeTextView;
@@ -366,7 +367,7 @@ public class Button extends AppCompatButton
                 cornerRadius = Math.min(cornerRadius, Math.min(getWidth(), getHeight()) / 2.0f);
             if (Material.IS_LOLLIPOP && renderingMode == RenderingMode.Auto) {
                 setClipToOutline(true);
-                setOutlineProvider(ShadowShape.viewOutlineProvider);
+                setOutlineProvider(ShadowUtil.viewOutlineProvider);
             } else {
                 if (Material.IS_LOLLIPOP)
                     setClipToOutline(false);
@@ -597,7 +598,7 @@ public class Button extends AppCompatButton
 
 
     @Override
-    public ShadowShape getShadowShape() {
+    public @ShadowShape int getShadowShape() {
         if (cornerRadius == getWidth() / 2 && getWidth() == getHeight())
             return ShadowShape.CIRCLE;
         if (cornerRadius > 0)

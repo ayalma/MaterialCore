@@ -23,7 +23,7 @@
       </configuration>
     </facet>
     <facet type="kotlin-language" name="Kotlin">
-      <configuration version="3" platform="JVM 1.8" useProjectSettings="false">
+      <configuration version="3" platform="JVM 1.6" useProjectSettings="false">
         <implements>debug</implements>
         <compilerSettings />
         <compilerArguments>
@@ -31,7 +31,6 @@
           <option name="noStdlib" value="true" />
           <option name="noReflect" value="true" />
           <option name="moduleName" value="widget_debug" />
-          <option name="jvmTarget" value="1.8" />
           <option name="addCompilerBuiltIns" value="true" />
           <option name="loadBuiltInsFromDependencies" value="true" />
           <option name="languageVersion" value="1.2" />
@@ -141,28 +140,30 @@
     <orderEntry type="jdk" jdkName="Android API 27 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="com.android.support:animated-vector-drawable-27.1.0" level="project" />
-    <orderEntry type="library" name="android.arch.lifecycle:common:1.1.0@jar" level="project" />
     <orderEntry type="library" name="com.android.support:appcompat-v7-27.1.0" level="project" />
-    <orderEntry type="library" name="com.android.support:gridlayout-v7-27.1.0" level="project" />
     <orderEntry type="library" name="com.android.support:design-27.1.0" level="project" />
     <orderEntry type="library" name="com.android.support:transition-27.1.0" level="project" />
     <orderEntry type="library" name="com.android.support:support-core-utils-27.1.0" level="project" />
-    <orderEntry type="library" name="com.android.support:support-compat-27.1.0" level="project" />
     <orderEntry type="library" name="android.arch.core:common:1.1.0@jar" level="project" />
-    <orderEntry type="library" name="android.arch.lifecycle:viewmodel-1.1.0" level="project" />
-    <orderEntry type="library" name="com.android.support:support-core-ui-27.1.0" level="project" />
     <orderEntry type="library" name="com.android.support:support-annotations:27.1.0@jar" level="project" />
     <orderEntry type="library" name="com.android.support:recyclerview-v7-27.1.0" level="project" />
-    <orderEntry type="library" name="android.arch.lifecycle:livedata-core-1.1.0" level="project" />
     <orderEntry type="library" name="de.greenrobot:androidsvg:1.2.2-beta-1-tweaked-2@jar" level="project" />
-    <orderEntry type="library" name="com.android.support:support-media-compat-27.1.0" level="project" />
-    <orderEntry type="library" name="com.android.support:support-fragment-27.1.0" level="project" />
     <orderEntry type="library" name="com.android.support.constraint:constraint-layout-1.1.0" level="project" />
     <orderEntry type="library" name="com.android.support.constraint:constraint-layout-solver:1.1.0@jar" level="project" />
     <orderEntry type="library" name="com.annimon:stream:1.1.9@jar" level="project" />
-    <orderEntry type="library" name="com.android.support:support-v4-27.1.0" level="project" />
     <orderEntry type="library" name="com.android.support:support-vector-drawable-27.1.0" level="project" />
     <orderEntry type="library" name="android.arch.lifecycle:runtime-1.1.0" level="project" />
+    <orderEntry type="library" name="android.arch.lifecycle:common:1.1.0@jar" level="project" />
+    <orderEntry type="library" name="com.android.support:gridlayout-v7-27.1.0" level="project" />
+    <orderEntry type="library" name="com.android.support:support-compat-27.1.0" level="project" />
+    <orderEntry type="library" name="android.arch.lifecycle:viewmodel-1.1.0" level="project" />
+    <orderEntry type="library" name="com.android.support:support-core-ui-27.1.0" level="project" />
+    <orderEntry type="library" name="org.jetbrains.kotlin:kotlin-stdlib:1.2.41@jar" level="project" />
+    <orderEntry type="library" name="android.arch.lifecycle:livedata-core-1.1.0" level="project" />
+    <orderEntry type="library" name="org.jetbrains:annotations:13.0@jar" level="project" />
+    <orderEntry type="library" name="com.android.support:support-media-compat-27.1.0" level="project" />
+    <orderEntry type="library" name="com.android.support:support-fragment-27.1.0" level="project" />
+    <orderEntry type="library" name="com.android.support:support-v4-27.1.0" level="project" />
     <orderEntry type="library" name="android.arch.core:runtime-1.1.0" level="project" />
     <orderEntry type="module" module-name="core" />
   </component>

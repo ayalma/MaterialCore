@@ -27,7 +27,7 @@ public interface ShadowView extends RenderingModeView {
 
     void setTranslationZ(float translationZ);
 
-    ShadowShape getShadowShape();
+    @ShadowShape int getShadowShape();
 
     boolean hasShadow();
 

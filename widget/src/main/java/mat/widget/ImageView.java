@@ -48,6 +48,7 @@ import material.core.internal.RevealAnimator;
 import material.core.shadow.Shadow;
 import material.core.shadow.ShadowGenerator;
 import material.core.shadow.ShadowShape;
+import material.core.shadow.ShadowUtil;
 import material.core.shadow.ShadowView;
 import material.core.view.OnTransformationChangedListener;
 import material.core.view.RenderingMode;
@@ -274,7 +275,7 @@ public class ImageView extends android.widget.ImageView
             cornerRadius = Math.min(cornerRadius, Math.min(getWidth(), getHeight()) / 2.0f);
             if (Material.IS_LOLLIPOP && renderingMode == RenderingMode.Auto) {
                 setClipToOutline(true);
-                setOutlineProvider(ShadowShape.viewOutlineProvider);
+                setOutlineProvider(ShadowUtil.viewOutlineProvider);
             } else {
                 cornersMask = new Path();
                 cornersMask.addRoundRect(new RectF(0, 0, getWidth(), getHeight()), cornerRadius, cornerRadius, Path.Direction.CW);
@@ -504,14 +505,7 @@ public class ImageView extends android.widget.ImageView
         this.translationZ = translationZ;
     }
 
-    @Override
-    public ShadowShape getShadowShape() {
-        if (cornerRadius == getWidth() / 2 && getWidth() == getHeight())
-            return ShadowShape.CIRCLE;
-        if (cornerRadius > 0)
-            return ShadowShape.ROUND_RECT;
-        return ShadowShape.RECT;
-    }
+    @Override    public @ShadowShape int getShadowShape() {        if (cornerRadius == getWidth() / 2 && getWidth() == getHeight())            return ShadowShape.CIRCLE;        if (cornerRadius > 0)            return ShadowShape.ROUND_RECT;        return ShadowShape.RECT;    }
 
     @Override
     public void setEnabled(boolean enabled) {

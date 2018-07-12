@@ -1,34 +1,19 @@
 package material.core.shadow;
 
-import android.annotation.SuppressLint;
-import android.graphics.Outline;
-import android.view.View;
-import android.view.ViewOutlineProvider;
+import android.support.annotation.IntDef;
 
-import material.core.Material;
-import material.core.view.RoundedCornersView;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 
-public enum ShadowShape {
-    RECT, ROUND_RECT, CIRCLE;
+import material.core.animation.Style;
 
-    public static ViewOutlineProvider viewOutlineProvider;
-
-    static {
-        if (Material.IS_LOLLIPOP) {
-            viewOutlineProvider = new ViewOutlineProvider() {
-                @SuppressLint("NewApi")
-                @Override
-                public void getOutline(View view, Outline outline) {
-                    ShadowShape shadowShape = ((ShadowView) view).getShadowShape();
-                    if (shadowShape == RECT) {
-                        outline.setRect(0, 0, view.getWidth(), view.getHeight());
-                    } else if (shadowShape == ROUND_RECT) {
-                        outline.setRoundRect(0, 0, view.getWidth(), view.getHeight(), ((RoundedCornersView) view).getCornerRadius());
-                    } else if (shadowShape == CIRCLE) {
-                        outline.setOval(0, 0, view.getWidth(), view.getHeight());
-                    }
-                }
-            };
-        }
-    }
+/**
+ * Created by ali on 7/12/2018.
+ */
+@Retention(RetentionPolicy.SOURCE)
+@IntDef({ShadowShape.RECT,ShadowShape.ROUND_RECT,ShadowShape.CIRCLE})
+public @interface ShadowShape {
+    int RECT = 0;
+    int ROUND_RECT = 1;
+    int CIRCLE = 2;
 }
